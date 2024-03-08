@@ -1,0 +1,14 @@
+<form [formGroup]="connexionForm">
+    <div class="formulaire">
+          <div class="container-form">
+            <label for="adress">Nom</label>: <input type="nom" name="nom" formControlName="nom" id="nom" required>
+          <label for="adress">adresse mail</label>: <input type="email" name="adress" formControlName="email" id="adress" required>
+      </div>
+      
+      <div class="container-form">
+          <label for="password">mot de passe</label>: <input type="password" name="password" formControlName="password" id="password">
+      </div>
+      <button> validé</button>
+      <button> inscription</button>
+    </div>
+    </form>
