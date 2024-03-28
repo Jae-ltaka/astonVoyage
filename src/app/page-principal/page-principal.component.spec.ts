@@ -1,17 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { InscriptionComponent } from './inscription.component';
 
-describe('InscriptionComponent', () => {
-  let component: InscriptionComponent;
-  let fixture: ComponentFixture<InscriptionComponent>;
+import { PagePrincipalComponent } from './page-principal.component';
+
+describe('PagePrincipalComponent', () => {
+  let component: PagePrincipalComponent;
+  let fixture: ComponentFixture<PagePrincipalComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [InscriptionComponent]
+      declarations: [ PagePrincipalComponent ]
     })
     .compileComponents();
-    
-    fixture = TestBed.createComponent(InscriptionComponent);
+
+    fixture = TestBed.createComponent(PagePrincipalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

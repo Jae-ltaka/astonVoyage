@@ -1,21 +1,49 @@
 <form [formGroup]="connexionForm">
-    <div class="formulaire">
-          <div class="container-form">
-            <label for="adress">Nom</label>: <input type="nom" name="nom" formControlName="nom" id="nom" required>
-          <label for="adress">adresse mail</label>: <input type="email" name="adress" formControlName="email" id="adress" required>
-      </div>
-      
-      <div class="container-form">
-          <label for="password">mot de passe</label>: <input type="password" name="password" formControlName="password" id="password">
-      </div>
-      <button type="button"  class="btn btn-primary"
-        tooltip="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
-  validé
-</button>
-<button type="button" class="btn btn-primary"
-    tooltip="ahahhaahahahha">
-    inscription
-  </button>
+  <div class="voyage">
+    <img class="aston"src="../../assets/unnamed.png" alt="">
     </div>
-    
-    </form>
+  <h4>Inscrivez-vous pour avoir une vie audacieuse ou rien du tout</h4>
+  <div class="formulaire">
+    <div class="form-name">
+
+      <mat-form-field class="name">
+        <mat-label>Nom</mat-label>
+        <input matInput>
+      </mat-form-field>
+    </div>
+    <div class="form-surname">
+      <mat-form-field class="surname">
+        <mat-label>Prénom</mat-label>
+        <input matInput>
+      </mat-form-field>
+    </div>
+
+
+    <div class="container-email">
+      <mat-form-field appearance="fill">
+        <mat-label>Enter your email</mat-label>
+        <input matInput placeholder="pat@example.com" [formControl]="email" required>
+        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="container-password">
+      <mat-form-field appearance="fill">
+        <mat-label>Enter your password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+
+
+    <div class="container-action">
+      <button type="button" (click)="navigateToConnexion()" class="btn btn-primary" tooltip="">
+        inscription
+      </button>
+    </div>
+  </div>
+
+</form>

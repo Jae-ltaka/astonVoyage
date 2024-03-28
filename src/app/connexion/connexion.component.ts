@@ -22,5 +22,7 @@ ngOnInit(): void {
 navigateToButtonInscription() {
   this.router.navigate(['/inscription']);
 }
-
+navigateToPagePrincipal(){
+  this.router.navigate(['/acceuil'])
+}
 }

@@ -9,8 +9,12 @@
         <div class="container-form">
             <label for="password">mot de passe</label>: <input type="password" name="password" formControlName="password" id="password">
         </div>
-        <button> validé</button>
-        <button (click)="navigateToButtonInscription()"> inscription</button>
+        <button type="button"(click)="navigateToPagePrincipal()" class="btn btn-primary">
+          Validé
+        </button>
+        <button type="button"(click)="navigateToButtonInscription()" class="btn btn-primary">
+          Inscription
+        </button>
       </div>
       </form>
     
