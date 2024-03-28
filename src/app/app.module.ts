@@ -10,12 +10,14 @@ import { ConnexionComponent } from './connexion/connexion.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
 import { InscriptionComponent } from './inscription/inscription.component';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
 
 @NgModule({
   declarations: [
     AppComponent,
     ConnexionComponent,
-    InscriptionComponent
+    InscriptionComponent,
+    
     
   ],
   imports: [
@@ -24,6 +26,8 @@ import { InscriptionComponent } from './inscription/inscription.component';
     ReactiveFormsModule,
     RouterModule,
     AppRoutingModule,
+    TooltipModule.forRoot()
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
