@@ -1,19 +1,28 @@
-.formulaire{
+.formulaire {
     display: block;
     text-align: center;
-    background: linear-gradient(90deg, #8360c3, #2ebf91);
-   width: 350px;
-   padding: 20px;
-   right: 80px;
-   margin:auto;
-   border-radius: 15px;
-   
-    
+    width: 350px;
+    padding: 20px;
+    right: 80px;
+    margin: auto;
+    border-radius: 15px;
+
+
 }
 
-.container-form{
+.container-form {
     margin-bottom: 12px;
 }
 
+h4 {
+    text-align: center;
+}
 
+.voyage {
+    display: flex;
+    justify-content: center;
+}
 
+.aston {
+    height: 150px;
+}

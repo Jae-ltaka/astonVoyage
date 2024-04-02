@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { CardService } from '../service/card.service';
 
+
 @Component({
   selector: 'app-page-principal',
   templateUrl: './page-principal.component.html',

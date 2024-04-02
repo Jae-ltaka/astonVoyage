@@ -1,22 +1,32 @@
+<div class="voyage">
+  <img class="aston" src="../../assets/unnamed.png" alt="">
+</div>
+<h4>Connectez-vous pour avoir une vie audacieuse ou rien du tout</h4>
+<form [formGroup]="connexionForm">
+  <div class="formulaire">
+    <div class="container-form">
+      <mat-form-field appearance="fill">
+        <mat-label>Entrer votre email</mat-label>
+        <input matInput placeholder="pat@example.com" formControlName="mail" required>
+      </mat-form-field>
+    </div>
 
-
-    <form [formGroup]="connexionForm">
-      <div class="formulaire">
-            <div class="container-form">
-            <label for="adress">adresse mail</label>: <input type="email" name="adress" formControlName="email" id="adress" required>
-        </div>
-        
-        <div class="container-form">
-            <label for="password">mot de passe</label>: <input type="password" name="password" formControlName="password" id="password">
-        </div>
-        <button type="button"(click)="navigateToPagePrincipal()" class="btn btn-primary">
-          Validé
+    <div class="container-form">
+      <mat-form-field appearance="fill">
+        <mat-label>Entrer votre mot de passe</mat-label>
+        <input matInput formControlName="mdp" id="password" required [type]="hide ? 'password' : 'text'">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
-        <button type="button"(click)="navigateToButtonInscription()" class="btn btn-primary">
-          Inscription
-        </button>
-      </div>
-      </form>
-    
-
-
+      </mat-form-field>
+    </div>
+    <button type="button" (click)="connexionUser()" [disabled]="connexionForm.invalid"
+      class="btn btn-primary">
+      Validé
+    </button>
+    <button type="button" (click)="navigateToButtonInscription()" class="btn btn-primary">
+      Inscription
+    </button>
+  </div>
+</form>

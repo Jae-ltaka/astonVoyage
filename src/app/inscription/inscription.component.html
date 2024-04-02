@@ -1,3 +1,4 @@
+
 <form [formGroup]="connexionForm">
   <div class="voyage">
     <img class="aston"src="../../assets/unnamed.png" alt="">
@@ -8,28 +9,41 @@
 
       <mat-form-field class="name">
         <mat-label>Nom</mat-label>
-        <input matInput>
+        <input matInput placeholder="" formControlName="nom"required>
+        <mat-error >{{getErrorMessage()}}</mat-error>
       </mat-form-field>
     </div>
     <div class="form-surname">
       <mat-form-field class="surname">
         <mat-label>Prénom</mat-label>
-        <input matInput>
+        <input matInput  placeholder="" formControlName="prenom"required>
+        <mat-error >{{getErrorMessage()}}</mat-error>
       </mat-form-field>
     </div>
 
 
     <div class="container-email">
       <mat-form-field appearance="fill">
-        <mat-label>Enter your email</mat-label>
-        <input matInput placeholder="pat@example.com" [formControl]="email" required>
-        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+        <mat-label>Entrer votre email</mat-label>
+        <input matInput placeholder="pat@example.com" formControlName="mail" required>
+        <mat-error >{{getErrorMessage()}}</mat-error>
       </mat-form-field>
     </div>
 
     <div class="container-password">
       <mat-form-field appearance="fill">
-        <mat-label>Enter your password</mat-label>
+        <mat-label>Entrer votre mot de passe</mat-label>
+        <input matInput formControlName="mdp" [type]="hide ? 'password' : 'text'">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+
+    <div class="container-password">
+      <mat-form-field appearance="fill">
+        <mat-label> votre mot de passe</mat-label>
         <input matInput [type]="hide ? 'password' : 'text'">
         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
           [attr.aria-pressed]="hide">
@@ -40,10 +54,11 @@
 
 
     <div class="container-action">
-      <button type="button" (click)="navigateToConnexion()" class="btn btn-primary" tooltip="">
+      <button type="button" (click)="postUsers()"[disabled]="connexionForm.invalid" class="btn btn-primary" tooltip="">
         inscription
       </button>
     </div>
   </div>
+  
 
 </form>
