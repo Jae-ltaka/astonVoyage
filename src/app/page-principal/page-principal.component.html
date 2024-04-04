@@ -1,37 +1,57 @@
+<div class="navigation-connexion">
+    <div class="information">
+        <mat-icon *ngIf="isConnected">account_circle</mat-icon>
+        <h4 *ngIf="isConnected">{{nom}} {{prenom}}</h4>
+        </div>
+
+    <button *ngIf="isConnected" mat-raised-button color="warn"(click)="deconnexion()">
+        Deconnexion
+    </button>
+
+    <button *ngIf="!isConnected" mat-raised-button color="primary"(click)="connexion()">Connexion
+    </button>
+    
+
+    <!--<button  mat-raised-button color="primary"(click)="sauvegarderPositionPage()">
+        {{isConnected ? 'Deconnexion': 'Connexion'}}
+    </button>-->
+</div>
+
 <div class="voyage">
-<img class="aston"src="../../assets/unnamed.png" alt="">
-<h1>Aston Voyage</h1>
+    <img class="aston" src="../../assets/unnamed.png" alt="">
+    <h1>Aston Voyage</h1>
 </div>
 <div class="row">
-    
+
     <div class="col-xs-12 col-12 col-md-4 form-group mb-3">
-        
+
         <input type="text" placeholder="Départ" class="form-control" bsDatepicker>
     </div>
     <div class="col-xs-12 col-12 col-md-4 form-group mb-3">
-       
+
         <input type="text" placeholder="Arivée" class="form-control" bsDatepicker>
-        
+
     </div>
     <button mat-raised-button color="primary">Recherche</button>
-   
+
 </div>
 
 <div class="cards">
-<mat-card class="card" *ngFor="let card of cards">
-    <mat-card-header>
-       
-        <mat-card-title class="title">{{card.titre}}</mat-card-title>
-        <mat-card-subtitle></mat-card-subtitle>
-    </mat-card-header>
-        <img class="img" mat-card-image src={{card.imageUrl}} alt="">
-    <mat-card-content class="description">
-        <p>Description</p>
-    </mat-card-content>
+    <mat-card class="card" *ngFor="let card of cards">
+        <mat-card-header>
 
-    <mat-card-actions class="buttons">
-        <button mat-raised-button color="primary" class="button">Détail</button>
-        <button mat-raised-button color="primary">Réservation</button>
-    </mat-card-actions>
-</mat-card>
+            <mat-card-title class="title">{{card.titre}}</mat-card-title>
+            <mat-card-subtitle></mat-card-subtitle>
+        </mat-card-header>
+        <img class="img" mat-card-image src={{card.imageUrl}} alt="">
+        <mat-card-content class="description">
+            <p>Description</p>
+        </mat-card-content>
+
+        <mat-card-actions class="buttons">
+            <button mat-raised-button color="primary" class="button">Détail</button>
+            <button mat-raised-button color="primary">Réservation</button>
+           
+        </mat-card-actions>
+    </mat-card>
 </div>
