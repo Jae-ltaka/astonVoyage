@@ -29,6 +29,7 @@ export class PagePrincipalComponent implements OnInit {
     this.maxDate.setDate(this.maxDate.getDate() + 7);
     this.bsInlineRangeValue = [this.bsInlineValue, this.maxDate];
     this.cards = this.card.card
+    console.log(this.card.card,'sa fonctionne')
   }
 
   deconnexion(): void {
