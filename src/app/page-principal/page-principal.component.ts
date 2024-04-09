@@ -24,4 +24,10 @@ export class PagePrincipalComponent {
    
    
   }
+  navigateToButtondetail() {
+    this.router.navigate(['/detail']);
+  }
+
+
+
 }

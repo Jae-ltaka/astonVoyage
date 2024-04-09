@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { PagePrincipalComponent } from './page-principal/page-principal.component';
+import { DetailComponent } from './detail/detail.component';
 
 
 export const routes: Routes = [
@@ -10,6 +11,7 @@ export const routes: Routes = [
     { path: 'acceuil', component: PagePrincipalComponent },
     { path: 'connexion', component: ConnexionComponent },
     { path: "inscription", component: InscriptionComponent },
+    { path: "detail", component: DetailComponent },
     
 ];
 
