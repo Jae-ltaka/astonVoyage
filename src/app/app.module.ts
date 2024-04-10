@@ -22,6 +22,7 @@ import { MatInputModule } from '@angular/material/input';
 import { HttpClientModule } from '@angular/common/http';
 import { DetailComponent } from './detail/detail.component';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { ReservationComponent } from './reservation/reservation.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
     InscriptionComponent,
     PagePrincipalComponent,
     DetailComponent,
+    ReservationComponent,
   
     
     
