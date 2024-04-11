@@ -19,7 +19,8 @@ export class PagePrincipalComponent implements OnInit{
   bsInlineValue = new Date();
   bsInlineRangeValue: Date[];
   maxDate = new Date();
-  cards;
+  cards:any;
+
   isConnected:any;
   nom!:string |null
   prenom!:string|null
