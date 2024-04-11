@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { CardService } from '../service/card.service';
 import { ActivatedRoute } from '@angular/router';
+import { UserServices } from '../service/user.service';
 
 
 
@@ -17,27 +18,35 @@ export class PagePrincipalComponent implements OnInit{
   bsInlineRangeValue: Date[];
   maxDate = new Date();
   cards;
-  route: any;
-  params: any;
+  isConnected:any;
+  nom!:string |null
+  prenom!:string|null
+  ngOnInit(): void {
+      this.isConnected = localStorage.getItem('accessToken') 
+   this.nom= localStorage.getItem('nom')
+   this.prenom=localStorage.getItem('prenom')
+  }
 
 
-  constructor(public router: Router,
-            public cardService:CardService,
-            private routere: ActivatedRoute ){
+  constructor(public router: Router, public card: CardService,public reponse:UserServices) {
     this.maxDate.setDate(this.maxDate.getDate() + 7);
     this.bsInlineRangeValue = [this.bsInlineValue, this.maxDate];
-    this.cards = this.cardService.card
-   
-   
-  }
-  ngOnInit(): void {
+    this.cards = this.card.card
   }
   navigateToButtondetail(_id:any) {
     // this.router.navigate(['/detail']);
     this.router.navigateByUrl(`detail/${_id}`);
   }
- 
+  deconnexion(): void {
+    localStorage.removeItem('accessToken')
+    this.isConnected = false;
+    localStorage.removeItem('nom')
+    localStorage.removeItem('prenom')
   }
 
-
-
+  connexion(): void {
+    localStorage.setItem('redirect', 'http://localhost:4200/connexion');
+    this.router.navigate(['/connexion']);
+  }
+  
+}

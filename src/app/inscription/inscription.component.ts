@@ -12,35 +12,25 @@ import { User } from '../interface/user';
   templateUrl: './inscription.component.html',
   styleUrls: ['./inscription.component.scss']
 })
-
 export class InscriptionComponent {
   public connexionForm!: FormGroup
   constructor(private formBuilder: FormBuilder , private router: Router,public user:UserServices,private http: HttpClient) { }
   hide = true;
-  
-  
   ngOnInit(): void {
     this.connexionForm = this.formBuilder.group({
-      
       nom:new FormControl('',[Validators.required]),
       prenom:new FormControl('',[Validators.required]),
       mdp:new FormControl('',[Validators.required]),
-      mail : new FormControl('', [Validators.required, Validators.email]),
-      
-      
+      mail : new FormControl('', [Validators.required, Validators.email]),  
     })
-    
-   
   }
   navigateToConnexion() {
     this.router.navigate(['/connexion']);
-    console.log(this.connexionForm.value,'sa foctionne');
   }
   getErrorMessage() {
     if (this.formBuilder.control('required')) {
       return 'entrez les valeurs';
     }
-
     return this.formBuilder.control('mail') ? 'Not a valid email' : '';
   }
   postUsers() {
@@ -51,6 +41,17 @@ export class InscriptionComponent {
     (error)=>{}
     );
   }
-  
+  validate() {
+ 
+    var a = this.connexionForm.value("mdp").value;
+    var b = this.connexionForm.value("confirm_mdp").value;
+
+    if (a!=b) {
+      alert("Les mots de passe ne correspondent pas.");
+      return false; }
+    else {
+      alert("Les mots de passe correspondent.");
+      return false; }
+    }
 }
 

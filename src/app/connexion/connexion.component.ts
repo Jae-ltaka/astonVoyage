@@ -30,11 +30,17 @@ export class ConnexionComponent implements OnInit {
   }
   connexionUser() {
     return this.http.post('http://localhost:3000/api/user/authenticate',this.connexionForm.value).subscribe(
-    (reponse)=>{
+    (reponse:any)=>{
+      localStorage.setItem('accessToken', reponse.accessToken)
+      console.log(reponse)
+      localStorage.setItem('nom',reponse.user.nom)
+      localStorage.setItem('prenom',reponse.user.prenom)
+
       this.navigateToPagePrincipal()
     },
     (error)=>{}
     );
+    
   }
 
 }
