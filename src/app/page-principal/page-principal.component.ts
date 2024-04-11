@@ -21,6 +21,7 @@ export class PagePrincipalComponent implements OnInit{
   isConnected:any;
   nom!:string |null
   prenom!:string|null
+  
   ngOnInit(): void {
       this.isConnected = localStorage.getItem('accessToken') 
    this.nom= localStorage.getItem('nom')
