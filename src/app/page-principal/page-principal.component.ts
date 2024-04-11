@@ -69,7 +69,9 @@ export class PagePrincipalComponent implements OnInit{
   //     (error)=>{}
   //   )
   // }
-
+  goToReservation(){
+    this.router.navigateByUrl('reservations')
+  }
 
 
 }
