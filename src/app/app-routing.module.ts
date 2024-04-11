@@ -5,6 +5,8 @@ import { InscriptionComponent } from './inscription/inscription.component';
 import { PagePrincipalComponent } from './page-principal/page-principal.component';
 import { DetailComponent } from './detail/detail.component';
 import { ReservationComponent } from './reservation/reservation.component';
+import { ReservationsComponent } from './reservations/reservations.component';
+
 
 
 export const routes: Routes = [
@@ -13,7 +15,8 @@ export const routes: Routes = [
     { path: 'connexion', component: ConnexionComponent },
     { path: "inscription", component: InscriptionComponent },
     { path: "detail/:id", component: DetailComponent },
-    {path:"reservation",component:ReservationComponent}
+    {path:"reservation",component:ReservationComponent},
+    {path:"reservations",component:ReservationsComponent}
     
 ];
 
