@@ -1,5 +1,30 @@
+<div class="navigation-connexion">
+  <div class="information">
+      <mat-icon *ngIf="isConnected">account_circle</mat-icon>
+      <h4 *ngIf="isConnected">{{nom}} {{prenom}}</h4>
+      </div>
+
+  <button *ngIf="isConnected" mat-raised-button color="warn"(click)="deconnexion()">
+      Deconnexion
+  </button>
+
+  <button *ngIf="!isConnected" mat-raised-button color="primary"(click)="connexion()">Connexion
+  </button>
+  
+
+  <!--<button  mat-raised-button color="primary"(click)="sauvegarderPositionPage()">
+      {{isConnected ? 'Deconnexion': 'Connexion'}}
+  </button>-->
+</div>
+
+<div class="voyage">
+  <img class="aston" src="../../assets/logo.png" alt="">
+  <h1>Aston Voyage</h1>
+</div>
+
+<br>
 <div class="papa">
-  <h1>Bienvenue en République démocratique du Congo</h1>
+  <h1> {{ pays?.phrase  }}</h1>
   <br>
   <div class="caroussel">
   <carousel>
@@ -19,7 +44,7 @@
   <br>
 </div>
 <div class="texte">
-<h2> Voici un pays avec un très beau décor naturel</h2>
+<h2>{{ pays?.description  }}</h2>
 </div>
 <br>
 <h3> Réserver pour visiter de nouveaux horizons !</h3>
@@ -47,14 +72,17 @@
       <td>Fly Emirates</td>
       <td>16h00</td>
       <td>21h30</td>
-      
     </tr>
   </table>
 
+<br>
+</div>
+<div class="buttonreservation">
   <button type="button" class="btn btn-primary" (click)="reservation()">
     Réservation
   </button>
 </div>
+
 
 
 
