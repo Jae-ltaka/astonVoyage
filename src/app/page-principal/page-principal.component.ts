@@ -28,10 +28,13 @@ export class PagePrincipalComponent implements OnInit{
   }
 
 
-  constructor(public router: Router, public card: CardService,public reponse:UserServices) {
+  constructor(public router: Router, 
+    public card: CardService,
+    public reponse:UserServices) {
     this.maxDate.setDate(this.maxDate.getDate() + 7);
     this.bsInlineRangeValue = [this.bsInlineValue, this.maxDate];
     this.cards = this.card.card
+    console.log(this.card.card,'sa fonctionne')
   }
   navigateToButtondetail(_id:any) {
     // this.router.navigate(['/detail']);
