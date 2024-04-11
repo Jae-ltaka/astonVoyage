@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { CardService } from '../service/card.service';
+import { ActivatedRoute } from '@angular/router';
 import { UserServices } from '../service/user.service';
+
+
 
 
 @Component({
@@ -10,7 +13,7 @@ import { UserServices } from '../service/user.service';
   templateUrl: './page-principal.component.html',
   styleUrls: ['./page-principal.component.scss']
 })
-export class PagePrincipalComponent implements OnInit {
+export class PagePrincipalComponent implements OnInit{
   bsInlineValue = new Date();
   bsInlineRangeValue: Date[];
   maxDate = new Date();
@@ -33,7 +36,10 @@ export class PagePrincipalComponent implements OnInit {
     this.cards = this.card.card
     console.log(this.card.card,'sa fonctionne')
   }
-
+  navigateToButtondetail(_id:any) {
+    // this.router.navigate(['/detail']);
+    this.router.navigateByUrl(`detail/${_id}`);
+  }
   deconnexion(): void {
     localStorage.removeItem('accessToken')
     this.isConnected = false;

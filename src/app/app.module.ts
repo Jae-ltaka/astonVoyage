@@ -20,6 +20,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { HttpClientModule } from '@angular/common/http';
+import { DetailComponent } from './detail/detail.component';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { ReservationComponent } from './reservation/reservation.component';
 
 
 
@@ -29,6 +32,8 @@ import { HttpClientModule } from '@angular/common/http';
     ConnexionComponent,
     InscriptionComponent,
     PagePrincipalComponent,
+    DetailComponent,
+    ReservationComponent,
   
     
     
@@ -48,7 +53,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatIconModule,
     MatInputModule,
     HttpClientModule,
-  
+    CarouselModule.forRoot(),
     
   ],
   providers: [],
