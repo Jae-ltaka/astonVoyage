@@ -1,0 +1,40 @@
+h1{
+  text-align: center;
+}
+
+h2{
+  text-align: center;
+}
+
+h3{
+  text-align: center;
+  justify-content:space-between;
+  padding-bottom: 30px
+}
+td{
+    border: 1px solid black; 
+    text-align: center;
+    flex-grow: 1;
+}
+.table {
+  border: 1px solid black;
+  width: 400px;
+  
+
+}
+.caroussel{
+  width: 45%; 
+  margin: 0 auto; 
+  overflow: hidden;
+
+}
+
+.center{
+display: flex;
+justify-content: center;
+}
+
+.button{
+  display: flex;
+justify-content: center;
+}

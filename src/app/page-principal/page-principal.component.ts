@@ -2,9 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { CardService } from '../service/card.service';
+import { ActivatedRoute } from '@angular/router';
 import { UserServices } from '../service/user.service';
 import { HttpClient } from '@angular/common/http';
 import { DestinationService } from '../service/destination-service';
+
+
 
 
 @Component({
@@ -12,7 +15,7 @@ import { DestinationService } from '../service/destination-service';
   templateUrl: './page-principal.component.html',
   styleUrls: ['./page-principal.component.scss']
 })
-export class PagePrincipalComponent implements OnInit {
+export class PagePrincipalComponent implements OnInit{
   bsInlineValue = new Date();
   bsInlineRangeValue: Date[];
   maxDate = new Date();
@@ -40,6 +43,11 @@ export class PagePrincipalComponent implements OnInit {
     this.maxDate.setDate(this.maxDate.getDate() + 7);
     this.bsInlineRangeValue = [this.bsInlineValue, this.maxDate];
     this.cards = this.card.card
+  }
+
+  navigateToButtondetail(_id:any) {
+    // this.router.navigate(['/detail']);
+    this.router.navigateByUrl(`detail/${_id}`);
   }
   deconnexion(): void {
     localStorage.removeItem('accessToken')
