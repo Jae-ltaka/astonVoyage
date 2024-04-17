@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { CardService } from '../service/card.service';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import { DestinationService } from '../service/destination-service';
 
 @Component({
   selector: 'app-detail',
@@ -16,9 +17,12 @@ export class DetailComponent implements OnInit{
   prenom!:string|null
   id!: any;
   pays!:any;
+  
+  
   constructor (public cardService:CardService,
               private route:ActivatedRoute,
-              private router:Router ){}
+              private router:Router,
+              private destination:DestinationService){}
 
   ngOnInit(): void {
       this.isConnected = localStorage.getItem('accessToken') 
@@ -33,7 +37,11 @@ export class DetailComponent implements OnInit{
       })
       console.log('Test ID:', this.id);
     });
+
+    const destinationId = this.route.snapshot.params['id'];
+    this.destination.getDestinationById(destinationId)
   }
+
   reservation(){
     this.router.navigate(["reservation"]);
   }
@@ -43,6 +51,8 @@ export class DetailComponent implements OnInit{
     localStorage.removeItem('nom')
     localStorage.removeItem('prenom')
   }
+
+
 
   connexion(): void {
     localStorage.setItem('redirect', 'http://localhost:4200/connexion');
