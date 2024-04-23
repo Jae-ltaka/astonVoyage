@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { CardService } from '../service/card.service';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import { DestinationService } from '../service/get-destination-service';
 
 @Component({
   selector: 'app-detail',
@@ -16,9 +17,12 @@ export class DetailComponent implements OnInit{
   prenom!:string|null
   id!: any;
   pays!:any;
+  
+  
   constructor (public cardService:CardService,
               private route:ActivatedRoute,
-              private router:Router ){}
+              private router:Router,
+              private destination:DestinationService){}
 
   ngOnInit(): void {
       this.isConnected = localStorage.getItem('accessToken') 
@@ -33,6 +37,9 @@ export class DetailComponent implements OnInit{
       })
       console.log('Test ID:', this.id);
     });
+
+    const destinationId = this.route.snapshot.params['id'];
+    this.destination.getDestinationById(destinationId)
   }
    //naviguer vers la page reservation
   reservation(){

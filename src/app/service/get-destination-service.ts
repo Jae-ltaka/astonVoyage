@@ -9,8 +9,14 @@ import { Destination } from '../model/destination';
 })
 export class DestinationService {
     constructor(private http:HttpClient){}
-    getDestination(): Observable<Destination[]> {
-        return this.http.get<Destination[]>('http://localhost:3000/api/destination/getAllDest')
-        
-        }
+  private BACK_URL = 'http://localhost:3000/api/destination';
+
+  getDestination(): Observable<Destination[]> {
+  return this.http.get<Destination[]>(this.BACK_URL+'/getAllDest')
+  }
+
+
+  getDestinationById(id:string):any {
+    return this.http.get(this.BACK_URL+'/getDest/'+id)
+  }
 }
