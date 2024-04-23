@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { CardService } from '../service/card.service';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
-import { DestinationService } from '../service/destination-service';
+import { DestinationService } from '../service/get-destination-service';
 
 @Component({
   selector: 'app-detail',
@@ -41,9 +41,9 @@ export class DetailComponent implements OnInit{
     const destinationId = this.route.snapshot.params['id'];
     this.destination.getDestinationById(destinationId)
   }
-
+   //naviguer vers la page reservation
   reservation(){
-    this.router.navigate(["reservation"]);
+    this.router.navigate(["booking-reservation"]);
   }
   deconnexion(): void {
     localStorage.removeItem('accessToken')
@@ -51,11 +51,13 @@ export class DetailComponent implements OnInit{
     localStorage.removeItem('nom')
     localStorage.removeItem('prenom')
   }
-
-
-
+   //naviguer vers la page connexion 
   connexion(): void {
     localStorage.setItem('redirect', 'http://localhost:4200/connexion');
+    this.router.navigate(['/connexion']);
+  }
+  detail():void{
+    localStorage.setItem('redirect','http://localhost:4200/detail/661500730bf8408e0e72351e');
     this.router.navigate(['/connexion']);
   }
 }

@@ -22,9 +22,9 @@ import { MatInputModule } from '@angular/material/input';
 import { HttpClientModule } from '@angular/common/http';
 import { DetailComponent } from './detail/detail.component';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
-import { ReservationComponent } from './reservation/reservation.component';
 import {MatMenuModule} from '@angular/material/menu';
 import { ReservationsComponent } from './reservations/reservations.component';
+import { BookingReservationComponent } from './booking-reservation/booking-reservation.component';
 
 
 
@@ -35,8 +35,8 @@ import { ReservationsComponent } from './reservations/reservations.component';
     InscriptionComponent,
     PagePrincipalComponent,
     DetailComponent,
-    ReservationComponent,
     ReservationsComponent,
+    BookingReservationComponent,
   
     
     

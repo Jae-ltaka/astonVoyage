@@ -12,14 +12,29 @@
     </button>
 
     <button *ngIf="!isConnected" mat-raised-button color="primary" (click)="connexion()">Connexion
-    </button>
-
-    <div class="voyage">
-        <img class="aston" src="../../assets/unnamed.png" alt="">
-        <h1>Aston Voyage</h1>
-    </div>
-
-
-    
+    </button>   
 </div>
-<h4>Mes réservations</h4>
+<div class="voyage">
+    <img class="aston" src="../../assets/logo.png" alt="">
+    <h1>Aston Voyage</h1>
+</div>
+<div class="reservations">
+<h2> Mes réservations</h2>
+<div class="cards">
+    <mat-card class="card" *ngFor="let card of book">
+        <mat-card-header>
+
+            <mat-card-title class="title">{{card.nom_destination}}</mat-card-title>
+            <mat-card-subtitle></mat-card-subtitle>
+        </mat-card-header>
+        <img class="img" mat-card-image src={{card.image}}>
+        <mat-card-content class="description">
+            <p>{{card.description}}</p>
+        </mat-card-content>
+        
+
+       
+    </mat-card>
+</div>
+
+

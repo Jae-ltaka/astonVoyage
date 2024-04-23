@@ -20,7 +20,7 @@
 <div class="voyage">
   <img class="aston" src="../../assets/logo.png" alt="">
   <h1>Aston Voyage</h1>
-</div>
+</div>---
 
 <br>
 <div class="papa">
@@ -78,9 +78,10 @@
 <br>
 </div>
 <div class="buttonreservation">
-  <button type="button" class="btn btn-primary" (click)="reservation()">
+  <button  *ngIf="isConnected" type="button" class="btn btn-primary" (click)="reservation()">
     Réservation
   </button>
+  <button  *ngIf="!isConnected" type="button" class="btn btn-primary" (click)="detail()"> connectez-vous pour réservez</button>
 </div>
 
 
