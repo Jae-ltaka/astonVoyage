@@ -34,8 +34,9 @@ export class DetailComponent implements OnInit{
       console.log('Test ID:', this.id);
     });
   }
+   //naviguer vers la page reservation
   reservation(){
-    this.router.navigate(["reservation"]);
+    this.router.navigate(["booking-reservation"]);
   }
   deconnexion(): void {
     localStorage.removeItem('accessToken')
@@ -43,9 +44,13 @@ export class DetailComponent implements OnInit{
     localStorage.removeItem('nom')
     localStorage.removeItem('prenom')
   }
-
+   //naviguer vers la page connexion 
   connexion(): void {
     localStorage.setItem('redirect', 'http://localhost:4200/connexion');
+    this.router.navigate(['/connexion']);
+  }
+  detail():void{
+    localStorage.setItem('redirect','http://localhost:4200/detail/661500730bf8408e0e72351e');
     this.router.navigate(['/connexion']);
   }
 }

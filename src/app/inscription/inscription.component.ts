@@ -24,6 +24,7 @@ export class InscriptionComponent {
       mail : new FormControl('', [Validators.required, Validators.email]),  
     })
   }
+   //naviguer vers la page connexion 
   navigateToConnexion() {
     this.router.navigate(['/connexion']);
   }

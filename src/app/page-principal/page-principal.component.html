@@ -1,10 +1,11 @@
 <div class="navigation-connexion">
     <div class="information">
         <mat-icon mat-button [matMenuTriggerFor]="menu" *ngIf="isConnected">account_circle</mat-icon>
-        <h4 *ngIf="isConnected">{{nom}} {{prenom}}</h4>
         <mat-menu #menu="matMenu">
             <button mat-menu-item (click)="goToReservation()">Mes réservations</button>
         </mat-menu>
+        <h4 *ngIf="isConnected">{{nom}} {{prenom}}</h4>
+        
     </div>
 
     <button *ngIf="isConnected" mat-raised-button color="warn" (click)="deconnexion()">
@@ -12,6 +13,7 @@
     </button>
 
     <button *ngIf="!isConnected" mat-raised-button color="primary" (click)="connexion()">Connexion
+        
     </button>
 
 
@@ -53,6 +55,7 @@
 
         <mat-card-actions class="buttons">
             <button mat-raised-button color="primary" class="button" (click)="navigateToButtondetail(card._id)">Détail</button>
+            
            
         </mat-card-actions>
     </mat-card>

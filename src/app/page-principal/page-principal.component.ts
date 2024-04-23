@@ -5,7 +5,8 @@ import { CardService } from '../service/card.service';
 import { ActivatedRoute } from '@angular/router';
 import { UserServices } from '../service/user.service';
 import { HttpClient } from '@angular/common/http';
-import { DestinationService } from '../service/destination-service';
+import { DestinationService } from '../service/get-destination-service';
+
 
 
 
@@ -46,11 +47,12 @@ export class PagePrincipalComponent implements OnInit{
     this.bsInlineRangeValue = [this.bsInlineValue, this.maxDate];
     this.cards = this.card.card
   }
-
+  //naviguer vers la page detail
   navigateToButtondetail(_id:any) {
     // this.router.navigate(['/detail']);
     this.router.navigateByUrl(`detail/${_id}`);
   }
+  //fonction deconnexion qui supprime le nom et prenom
   deconnexion(): void {
     localStorage.removeItem('accessToken')
     this.isConnected = false;
@@ -58,6 +60,7 @@ export class PagePrincipalComponent implements OnInit{
     localStorage.removeItem('prenom')
   }
   
+  //naviguer vers la page connexion + stocker l'url dans le localStorage
   connexion(): void {
     localStorage.setItem('redirect', 'http://localhost:4200/connexion');
     this.router.navigate(['/connexion']);
