@@ -15,6 +15,7 @@ export class ReservationsComponent implements OnInit{
   nom!: string | null
   prenom!: string | null
   book!:any
+  
   constructor(public router: Router,
     public card: CardService,
     public reponse: UserServices,
