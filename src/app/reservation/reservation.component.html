@@ -1,3 +1,53 @@
-<h1> Réservez juste ici :</h1>>
-<br>
-<p> Les champs ci-dessous sont obligatoires:</p>
+<form [formGroup]="connexionForm">
+  <div class="voyage">
+    <img src="../../assets/logo.png" alt="">
+  </div>
+  <mat-card class="card">
+
+    <div class="tire_card">
+      <p>Réservez juste ici</p>
+      <p>Les champs ci-dessous sont obligatoires:</p>
+      <p> Récapitulatif de la réservation:</p>
+    </div>
+    
+    <div class="centre">
+    <div class="partGauche">
+    <form >
+      
+      <br>
+      <mat-form-field class="exemple-full-width">
+        <mat-label for="Prenom">Prenom</mat-label>
+        <input matInput id="prenom" type="text">
+      </mat-form-field>
+      <br>
+      <mat-form-field class="exemple-full-width">
+        <mat-label for="nom">Nom</mat-label>
+        <input matInput id="nom" type="text">
+      </mat-form-field>
+      <br>
+      <mat-form-field class="exemple-full-width">
+        <mat-label for="mail">Adresse mail</mat-label>
+        <input matInput id="Numero" type="text">
+      </mat-form-field>
+    </form>
+  </div>  
+
+   <div class="partDroite">
+    <mat-card>
+      <mat-card-content>
+        <p>Lieu:</p>
+        <p>Date de depart:</p>
+        <p>Aeroport de depart:</p>
+        <p>Aeroport d'arrivée:</p>
+        <p>Date de retour:</p>
+        <p>Prix:</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+</div>
+
+    <div class="bouton">
+      <button mat-flat-button color="primary">Paiement</button>
+    </div>
+    <br>
