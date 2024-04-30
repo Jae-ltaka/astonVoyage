@@ -5,7 +5,7 @@ import { CardService } from '../service/card.service';
 import { ActivatedRoute } from '@angular/router';
 import { UserServices } from '../service/user.service';
 import { HttpClient } from '@angular/common/http';
-import { DestinationService } from '../service/destination-service';
+import { DestinationService } from '../service/get-destination-service';
 
 
 
@@ -20,10 +20,12 @@ export class PagePrincipalComponent implements OnInit{
   bsInlineRangeValue: Date[];
   maxDate = new Date();
   cards:any;
-
+  dateDepartFormatee!: string;
   isConnected:any;
   nom!:string |null
   prenom!:string|null
+  depart!:any
+  retour!:any
   
   ngOnInit(): void {
     this.isConnected = localStorage.getItem('accessToken')
@@ -46,11 +48,12 @@ export class PagePrincipalComponent implements OnInit{
     this.bsInlineRangeValue = [this.bsInlineValue, this.maxDate];
     this.cards = this.card.card
   }
-
+  //naviguer vers la page detail
   navigateToButtondetail(_id:any) {
     // this.router.navigate(['/detail']);
     this.router.navigateByUrl(`detail/${_id}`);
   }
+  //fonction deconnexion qui supprime le nom et prenom
   deconnexion(): void {
     localStorage.removeItem('accessToken')
     this.isConnected = false;
@@ -58,6 +61,7 @@ export class PagePrincipalComponent implements OnInit{
     localStorage.removeItem('prenom')
   }
   
+  //naviguer vers la page connexion + stockage de  l'url dans le localStorage
   connexion(): void {
     localStorage.setItem('redirect', 'http://localhost:4200/connexion');
     this.router.navigate(['/connexion']);
@@ -73,6 +77,11 @@ export class PagePrincipalComponent implements OnInit{
   // }
   goToReservation(){
     this.router.navigateByUrl('reservations')
+  }
+  filterDestination(){
+    console.log(this.depart.toISOString(),this.retour)
+    this.destination.getDestinationFiltered(this.depart.toISOString(),this.retour.toISOString()).subscribe()
+    
   }
 
 

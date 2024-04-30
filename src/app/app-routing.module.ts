@@ -4,8 +4,9 @@ import { ConnexionComponent } from './connexion/connexion.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { PagePrincipalComponent } from './page-principal/page-principal.component';
 import { DetailComponent } from './detail/detail.component';
-import { ReservationComponent } from './reservation/reservation.component';
 import { ReservationsComponent } from './reservations/reservations.component';
+import { AuthenticateCanActivate } from './guard/authentication.guard';
+import { BookingReservationComponent } from './booking-reservation/booking-reservation.component';
 
 
 
@@ -15,8 +16,9 @@ export const routes: Routes = [
     { path: 'connexion', component: ConnexionComponent },
     { path: "inscription", component: InscriptionComponent },
     { path: "detail/:id", component: DetailComponent },
-    {path:"reservation",component:ReservationComponent},
-    {path:"reservations",component:ReservationsComponent}
+    {path:"booking-reservation",component:BookingReservationComponent,canActivate:[AuthenticateCanActivate]},
+
+    {path:"reservations",component:ReservationsComponent,canActivate:[AuthenticateCanActivate]}
     
 ];
 
@@ -26,6 +28,7 @@ export const routes: Routes = [
     ],
     imports: [
         RouterModule.forRoot(routes)
-    ]
+    ],
+    providers:[AuthenticateCanActivate]
 })
 export class AppRoutingModule { }

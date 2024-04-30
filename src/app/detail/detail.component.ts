@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { CardService } from '../service/card.service';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import { DestinationService } from '../service/get-destination-service';
 
 @Component({
   selector: 'app-detail',
@@ -16,9 +17,12 @@ export class DetailComponent implements OnInit{
   prenom!:string|null
   id!: any;
   pays!:any;
+  
+  
   constructor (public cardService:CardService,
               private route:ActivatedRoute,
-              private router:Router ){}
+              private router:Router,
+              private destination:DestinationService){}
 
   ngOnInit(): void {
       this.isConnected = localStorage.getItem('accessToken') 
@@ -27,15 +31,24 @@ export class DetailComponent implements OnInit{
     this.route.params.subscribe(params => {
       this.id = params['id']; // Access the 'id' parameter from the URL
       
-     this.pays= this.cardService.card.find((pays)=> {
-      console.log(pays)
-        return pays._id == this.id
-      })
-      console.log('Test ID:', this.id);
+
+console.log('Test ID:', this.id);
     });
+
+    const destinationId = this.route.snapshot.params['id'];
+    this.destination.getDestinationById(destinationId).subscribe(
+      (data:any) => {
+        this.pays = data
+
+      },
+      (error:any) => { 
+        console.log(error)
+      }
+    )
   }
+   //naviguer vers la page reservation
   reservation(){
-    this.router.navigate(["reservation"]);
+    this.router.navigate(["booking-reservation"]);
   }
   deconnexion(): void {
     localStorage.removeItem('accessToken')
@@ -43,10 +56,14 @@ export class DetailComponent implements OnInit{
     localStorage.removeItem('nom')
     localStorage.removeItem('prenom')
   }
-
+   //naviguer vers la page connexion 
   connexion(): void {
-    localStorage.setItem('redirect', 'http://localhost:4200/connexion');
+    localStorage.setItem('redirect', 'detail/'+this.id);
     this.router.navigate(['/connexion']);
   }
+  goToReservation(){
+    this.router.navigateByUrl('reservations')
+  }
+
 }
   

@@ -21,13 +21,22 @@ export class ConnexionComponent implements OnInit {
       mdp: ["", [Validators.required]]
     })
   }
+   //naviguer vers la page inscription
   navigateToButtonInscription() {
     this.router.navigate(['/inscription']);
   }
-
+   //naviguer vers la page connexion 
   navigateToPagePrincipal() {
-    this.router.navigate(['/acceuil']);
+    if(localStorage.getItem('redirect')){
+      
+      this.router.navigate([localStorage.getItem('redirect')])
+      localStorage.removeItem('redirect')
+    }else{
+      this.router.navigate(['/acceuil',]);
+    }
+    
   }
+
   connexionUser() {
     return this.http.post('http://localhost:3000/api/user/authenticate',this.connexionForm.value).subscribe(
     (reponse:any)=>{
@@ -35,6 +44,7 @@ export class ConnexionComponent implements OnInit {
       console.log(reponse)
       localStorage.setItem('nom',reponse.user.nom)
       localStorage.setItem('prenom',reponse.user.prenom)
+      localStorage.setItem('id',reponse.user._id)
 
       this.navigateToPagePrincipal()
     },
