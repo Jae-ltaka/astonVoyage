@@ -24,7 +24,7 @@
 
 <br>
 <div class="papa">
-  <h1> {{ pays?.phrase  }}</h1>
+  <h1> {{ pays.nom_destination  }}</h1>
   <br>
   <div class="caroussel">
   <carousel>
@@ -43,46 +43,35 @@
   </carousel>
   <br>
 </div>
+</div>
 <div class="texte">
-<h2>{{ pays?.description  }}</h2>
+<h2>{{ pays.description  }}</h2>
 </div>
 <br>
 <h3> Réserver pour visiter de nouveaux horizons !</h3>
 
-<div class="center" >
 
-  <table class="table" >
-    
-    <tr>
-      <th>Compagnie Aérienne</th>
-      <th>Heure de départ</th>
-      <th>Heure d'arrivée</th>
-    </tr>
-    <tr>
-      <td>Air France</td>
-      <td>10h00</td>
-      <td>16h00</td>
-    </tr>
-    <tr>
-      <td>Royal Air Maroc</td>
-      <td>12h00</td>
-      <td>18h00</td>
-    </tr>
-    <tr>
-      <td>Fly Emirates</td>
-      <td>16h00</td>
-      <td>21h30</td>
-    </tr>
-  </table>
+  <mat-card class="center">
+
+  <mat-card-content>
+    <p>Pour votre Séjour a <strong class="abc">{{pays.nom_destination}} : </strong><p>
+    <p>Votre vol sera opérée par la compagnie <strong class="abc">{{pays.vols.compagnie_vol}}</strong></p>
+    <p>Au depart de <strong class="abc">{{pays.vols.aeroport_depart}}</strong> a <strong class="abc">{{pays.vols.heure_depart}}</strong> </p>
+    <p>Et vous atteindrez <strong class="abc">l'{{pays.vols.aeroport_arrivee}}</strong> a <strong class="abc">{{pays.vols.heure_arrivee}}</strong></p>
+    </mat-card-content>
+
+  </mat-card>
 
 <br>
-</div>
+
 <div class="buttonreservation">
   <button  *ngIf="isConnected" type="button" class="btn btn-primary" (click)="reservation()">
     Réservation
   </button>
   <button  *ngIf="!isConnected" type="button" class="btn btn-primary" (click)="detail()"> connectez-vous pour réservez</button>
 </div>
+
+
 
 
 

@@ -31,15 +31,20 @@ export class DetailComponent implements OnInit{
     this.route.params.subscribe(params => {
       this.id = params['id']; // Access the 'id' parameter from the URL
       
-     this.pays= this.cardService.card.find((pays)=> {
-      console.log(pays)
-        return pays._id == this.id
-      })
-      console.log('Test ID:', this.id);
+
+console.log('Test ID:', this.id);
     });
 
     const destinationId = this.route.snapshot.params['id'];
-    this.destination.getDestinationById(destinationId)
+    this.destination.getDestinationById(destinationId).subscribe(
+      (data:any) => {
+        this.pays = data
+
+      },
+      (error:any) => { 
+        console.log(error)
+      }
+    )
   }
    //naviguer vers la page reservation
   reservation(){
