@@ -20,7 +20,20 @@
 </div>
 <div class="reservations">
 <h2> Mes réservations</h2>
-<div class="cards">
+<ng-template #pasDeBook>
+    <div class="voyage">
+    <img class="" src="../../assets/11137.jpg" alt="">
+</div>
+<h3> Notre pilote attend que vous !!!</h3>
+<div class="retour">
+<button *ngIf="isConnected" mat-raised-button color="warn" (click)="goToAcceuil()">
+    Retour vers la page d'acceuil
+</button>
+</div>
+</ng-template>
+
+<div class="cards" *ngIf="book.length>0; else pasDeBook">
+    
     <mat-card class="card" *ngFor="let card of book">
         <mat-card-header>
 
@@ -31,9 +44,12 @@
         <mat-card-content class="description">
             <p>{{card.description}}</p>
         </mat-card-content>
-        
 
-       
+        <mat-card-actions class="buttons">
+            
+            
+           
+        </mat-card-actions>
     </mat-card>
 </div>
 

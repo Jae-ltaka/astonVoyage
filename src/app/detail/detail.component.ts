@@ -58,12 +58,12 @@ console.log('Test ID:', this.id);
   }
    //naviguer vers la page connexion 
   connexion(): void {
-    localStorage.setItem('redirect', 'http://localhost:4200/connexion');
+    localStorage.setItem('redirect', 'detail/'+this.id);
     this.router.navigate(['/connexion']);
   }
-  detail():void{
-    localStorage.setItem('redirect','http://localhost:4200/detail/661500730bf8408e0e72351e');
-    this.router.navigate(['/connexion']);
+  goToReservation(){
+    this.router.navigateByUrl('reservations')
   }
+
 }
   
