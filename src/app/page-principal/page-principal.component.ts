@@ -10,7 +10,6 @@ import { DestinationService } from '../service/get-destination-service';
 
 
 
-
 @Component({
   selector: 'app-page-principal',
   templateUrl: './page-principal.component.html',
@@ -21,10 +20,12 @@ export class PagePrincipalComponent implements OnInit{
   bsInlineRangeValue: Date[];
   maxDate = new Date();
   cards:any;
-
+  dateDepartFormatee!: string;
   isConnected:any;
   nom!:string |null
   prenom!:string|null
+  depart!:any
+  retour!:any
   
   ngOnInit(): void {
     this.isConnected = localStorage.getItem('accessToken')
@@ -60,7 +61,7 @@ export class PagePrincipalComponent implements OnInit{
     localStorage.removeItem('prenom')
   }
   
-  //naviguer vers la page connexion + stocker l'url dans le localStorage
+  //naviguer vers la page connexion + stockage de  l'url dans le localStorage
   connexion(): void {
     localStorage.setItem('redirect', 'http://localhost:4200/connexion');
     this.router.navigate(['/connexion']);
@@ -76,6 +77,11 @@ export class PagePrincipalComponent implements OnInit{
   // }
   goToReservation(){
     this.router.navigateByUrl('reservations')
+  }
+  filterDestination(){
+    console.log(this.depart.toISOString(),this.retour)
+    this.destination.getDestinationFiltered(this.depart.toISOString(),this.retour.toISOString()).subscribe()
+    
   }
 
 
