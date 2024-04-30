@@ -27,8 +27,16 @@ export class ConnexionComponent implements OnInit {
   }
    //naviguer vers la page connexion 
   navigateToPagePrincipal() {
-    this.router.navigate(['/acceuil']);
+    if(localStorage.getItem('redirect')){
+      
+      this.router.navigate([localStorage.getItem('redirect')])
+      localStorage.removeItem('redirect')
+    }else{
+      this.router.navigate(['/acceuil',]);
+    }
+    
   }
+
   connexionUser() {
     return this.http.post('http://localhost:3000/api/user/authenticate',this.connexionForm.value).subscribe(
     (reponse:any)=>{
