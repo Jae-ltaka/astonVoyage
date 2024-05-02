@@ -48,7 +48,7 @@ console.log('Test ID:', this.id);
   }
    //naviguer vers la page reservation
   reservation(){
-    this.router.navigate(["booking-reservation"]);
+    this.router.navigate(["reservation"]);
   }
   deconnexion(): void {
     localStorage.removeItem('accessToken')
