@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Form, FormGroup, FormBuilder,FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-reservation',
@@ -8,9 +9,16 @@ import { Form, FormGroup, FormBuilder,FormControl, Validators } from '@angular/f
 })
 export class ReservationComponent implements OnInit{
   public connexionForm!: FormGroup
-  constructor(private formBuilder: FormBuilder ){}
+  constructor(private formBuilder: FormBuilder,
+    private router:Router,
+  ){}
+  
 ngOnInit(): void {
   
+}
+
+paiement(){
+  this.router.navigate(["booking-reservation"]);
 }
 }
 

@@ -7,7 +7,7 @@ import { DetailComponent } from './detail/detail.component';
 import { ReservationsComponent } from './reservations/reservations.component';
 import { AuthenticateCanActivate } from './guard/authentication.guard';
 import { BookingReservationComponent } from './booking-reservation/booking-reservation.component';
-
+import { ReservationComponent } from './reservation/reservation.component';
 
 
 export const routes: Routes = [
@@ -18,8 +18,8 @@ export const routes: Routes = [
     { path: "detail/:id", component: DetailComponent },
     {path:"booking-reservation",component:BookingReservationComponent,canActivate:[AuthenticateCanActivate]},
 
-    {path:"reservations",component:ReservationsComponent,canActivate:[AuthenticateCanActivate]}
-    
+    {path:"reservations",component:ReservationsComponent,canActivate:[AuthenticateCanActivate]},
+    {path:"reservation", component:ReservationComponent,canActivate:[AuthenticateCanActivate]}
 ];
 
 @NgModule({
