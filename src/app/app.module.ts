@@ -24,9 +24,8 @@ import { DetailComponent } from './detail/detail.component';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import {MatMenuModule} from '@angular/material/menu';
 import { ReservationsComponent } from './reservations/reservations.component';
-import { PaiementComponent } from './paiement/paiement.component';
+import{ ReservationComponent} from './reservation/reservation.component';
 import { BookingReservationComponent } from './booking-reservation/booking-reservation.component';
-import{ ReservationComponent} from './reservation/reservation.component'
 
 
 
@@ -38,12 +37,8 @@ import{ ReservationComponent} from './reservation/reservation.component'
     PagePrincipalComponent,
     DetailComponent,
     ReservationsComponent,
-    PaiementComponent,
-    BookingReservationComponent,
-    ReservationComponent
-  
-    
-    
+    ReservationComponent,
+    BookingReservationComponent
   ],
   imports: [
     BrowserModule,

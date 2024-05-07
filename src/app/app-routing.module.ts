@@ -10,7 +10,6 @@ import { BookingReservationComponent } from './booking-reservation/booking-reser
 import { ReservationComponent } from './reservation/reservation.component';
 
 
-
 export const routes: Routes = [
     { path: '', redirectTo: 'acceuil', pathMatch: 'full' },
     { path: 'acceuil', component: PagePrincipalComponent },
