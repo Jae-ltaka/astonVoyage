@@ -24,8 +24,7 @@ export class PagePrincipalComponent implements OnInit{
   isConnected:any;
   nom!:string |null
   prenom!:string|null
-  depart!:any
-  retour!:any
+  date_depart!:any
   
   ngOnInit(): void {
     this.isConnected = localStorage.getItem('accessToken')
@@ -79,10 +78,15 @@ export class PagePrincipalComponent implements OnInit{
     this.router.navigateByUrl('reservations')
   }
   filterDestination(){
-    console.log(this.depart.toISOString(),this.retour)
-    this.destination.getDestinationFiltered(this.depart.toISOString(),this.retour.toISOString()).subscribe()
+    this.destination.getDestinationFiltered(this.date_depart.toISOString()).subscribe(
+      (data:any)=>{
+        this.cards = data.res
+      }
+    )
+    console.log(this.filterDestination,'ici')
     
   }
+
 
 
 }

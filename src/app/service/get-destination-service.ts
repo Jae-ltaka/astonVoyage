@@ -19,8 +19,8 @@ export class DestinationService {
   getDestinationById(id:string):any {
     return this.http.get(this.BACK_URL+'/getDest/'+id)
   }
-  getDestinationFiltered(dateDepart:string,dateRetour:string):any {
-    return this.http.get(this.BACK_URL+'/getDestFiltered/',{params:{dateDepart,dateRetour}})
+  getDestinationFiltered(dateDepart:string):any {
+    return this.http.get(this.BACK_URL+'/getAllDestByDate',{params:{dateDepart}})
   }
   
 }
