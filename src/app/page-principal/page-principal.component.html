@@ -30,15 +30,11 @@
 
     <div class="col-xs-12 col-12 col-md-4 form-group mb-3">
 
-        <input type="text" [(ngModel)]="depart" placeholder="Départ" class="form-control" bsDatepicker >
+        <input type="text" [(ngModel)]="date_depart" placeholder="Départ" class="form-control" bsDatepicker >
       </div>
-    <div class="col-xs-12 col-12 col-md-4 form-group mb-3">
+  
 
-        <input type="text"[(ngModel)]='retour' placeholder="Arivée" class="form-control" bsDatepicker>
-
-    </div>
-
-    <button mat-raised-button color="primary" class="button" (click)="  filterDestination()">Recherche</button>
+    <button mat-raised-button color="primary" class="button" (click)="filterDestination()">Recherche</button>
 
 
 </div>

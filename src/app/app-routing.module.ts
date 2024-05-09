@@ -18,10 +18,8 @@ export const routes: Routes = [
     { path: "inscription", component: InscriptionComponent },
     { path: "detail/:id", component: DetailComponent },
     {path:"booking-reservation",component:BookingReservationComponent,canActivate:[AuthenticateCanActivate]},
-
     {path:"reservations",component:ReservationsComponent,canActivate:[AuthenticateCanActivate]},
-    {path:"reservation", component:ReservationComponent,canActivate:[AuthenticateCanActivate]},
-    {path:"valider", component:ValiderComponent}
+    {path:"reservation/:id", component:ReservationComponent,canActivate:[AuthenticateCanActivate]}
 ];
 
 @NgModule({

@@ -11,41 +11,25 @@
     </div>
     
     <div class="centre">
-    <div class="partGauche">
-    <form >
-      
-      <br>
-      <mat-form-field class="exemple-full-width">
-        <mat-label for="Prenom">Prenom</mat-label>
-        <input matInput id="prenom" type="text">
-      </mat-form-field>
-      <br>
-      <mat-form-field class="exemple-full-width">
-        <mat-label for="nom">Nom</mat-label>
-        <input matInput id="nom" type="text">
-      </mat-form-field>
-      <br>
-      <mat-form-field class="exemple-full-width">
-        <mat-label for="mail">Adresse mail</mat-label>
-        <input matInput id="Numero" type="text">
-      </mat-form-field>
-    </form>
-  </div>  
-
-   <div class="partDroite">
-    <mat-card>
+    <mat-card *ngIf="pays">
       <mat-card-content>
-        <p>Lieu:</p>
-        <p>Date de depart:</p>
-        <p>Aeroport de depart:</p>
-        <p>Aeroport d'arrivée:</p>
-        <p>Date de retour:</p>
-        <p>Prix:</p>
+        <!-- <img src="../../assets/plane.png" alt="plane1"> -->
+        <p>-----------------------------------------------------------</p>
+        <p>nom: <strong>{{nom}}</strong></p>
+        <p>prenom: <strong>{{prenom}}</strong></p>
+        <p>mail: <strong>{{mail }}</strong></p>
+        <p>Lieu: <strong>{{pays.nom_destination}}</strong></p>
+        <p>Aeroport de depart: <strong>{{pays.vols.aeroport_depart}}</strong></p>
+        <p>Date de depart: <strong>{{pays.date_depart | date: 'shortDate' }}</strong></p>
+        <p>Aeroport d'arrivée: <strong>{{pays.vols.aeroport_arrivee}}</strong></p>
+        <p>Date de retour: <strong>{{pays.date_depart | date: 'shortDate' }}</strong></p>
+        <p>Prix: <strong>{{pays.prix}}</strong></p>
+        <p>-----------------------------------------------------------</p>
+        <!-- <img src="../../assets/plane.png" alt="plane2"> -->
       </mat-card-content>
     </mat-card>
   </div>
-
-</div>
+<br>
 
     <div class="bouton">
       <button mat-flat-button color="primary" (click)="paiement()">Paiement</button>

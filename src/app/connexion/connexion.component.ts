@@ -44,6 +44,7 @@ export class ConnexionComponent implements OnInit {
       console.log(reponse)
       localStorage.setItem('nom',reponse.user.nom)
       localStorage.setItem('prenom',reponse.user.prenom)
+      localStorage.setItem('mail',reponse.user.mail)
       localStorage.setItem('id',reponse.user._id)
 
       this.navigateToPagePrincipal()
