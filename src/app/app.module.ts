@@ -15,7 +15,7 @@ import { PagePrincipalComponent } from './page-principal/page-principal.componen
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import {MatCardModule} from '@angular/material/card';
-import {MatButtonModule} from '@angular/material/button';
+
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
@@ -26,6 +26,10 @@ import {MatMenuModule} from '@angular/material/menu';
 import { ReservationsComponent } from './reservations/reservations.component';
 import{ ReservationComponent} from './reservation/reservation.component';
 import { BookingReservationComponent } from './booking-reservation/booking-reservation.component';
+import {MatButtonModule} from '@angular/material/button';
+import {MatDialogModule} from '@angular/material/dialog';
+import { ValiderComponent } from './valider/valider.component';
+
 
 
 
@@ -38,7 +42,10 @@ import { BookingReservationComponent } from './booking-reservation/booking-reser
     DetailComponent,
     ReservationsComponent,
     ReservationComponent,
-    BookingReservationComponent
+    BookingReservationComponent,
+    ValiderComponent,
+    
+    
   ],
   imports: [
     BrowserModule,
@@ -56,7 +63,8 @@ import { BookingReservationComponent } from './booking-reservation/booking-reser
     MatInputModule,
     HttpClientModule,
     CarouselModule.forRoot(),
-    MatMenuModule
+    MatMenuModule,
+    MatDialogModule
     
   ],
   providers: [],

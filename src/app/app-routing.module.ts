@@ -8,6 +8,7 @@ import { ReservationsComponent } from './reservations/reservations.component';
 import { AuthenticateCanActivate } from './guard/authentication.guard';
 import { BookingReservationComponent } from './booking-reservation/booking-reservation.component';
 import { ReservationComponent } from './reservation/reservation.component';
+import { ValiderComponent } from './valider/valider.component';
 
 
 export const routes: Routes = [
