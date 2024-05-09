@@ -19,7 +19,7 @@ export const routes: Routes = [
     {path:"booking-reservation",component:BookingReservationComponent,canActivate:[AuthenticateCanActivate]},
 
     {path:"reservations",component:ReservationsComponent,canActivate:[AuthenticateCanActivate]},
-    {path:"reservation", component:ReservationComponent,canActivate:[AuthenticateCanActivate]}
+    {path:"reservation/:id", component:ReservationComponent,canActivate:[AuthenticateCanActivate]}
 ];
 
 @NgModule({
