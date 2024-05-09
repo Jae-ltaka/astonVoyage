@@ -6,7 +6,6 @@
 .bouton{
 display: flex;
 justify-content: center;
-color: blue;
 }
 
 .tire_card{
@@ -27,4 +26,8 @@ p{
 .centre{
   display: flex;
   justify-content: space-around;
+}
+
+strong{
+ color: blueviolet;
 }
