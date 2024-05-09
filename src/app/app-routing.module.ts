@@ -17,6 +17,7 @@ export const routes: Routes = [
     { path: 'connexion', component: ConnexionComponent },
     { path: "inscription", component: InscriptionComponent },
     { path: "detail/:id", component: DetailComponent },
+    { path: 'valider', component: ValiderComponent},
     {path:"booking-reservation",component:BookingReservationComponent,canActivate:[AuthenticateCanActivate]},
     {path:"reservations",component:ReservationsComponent,canActivate:[AuthenticateCanActivate]},
     {path:"reservation/:id", component:ReservationComponent,canActivate:[AuthenticateCanActivate]}
