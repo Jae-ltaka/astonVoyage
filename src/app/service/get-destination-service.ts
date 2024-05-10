@@ -9,7 +9,7 @@ import { Destination } from '../model/destination';
 })
 export class DestinationService {
     constructor(private http:HttpClient){}
-  private BACK_URL = 'http://localhost:3000/api/destination';
+  private BACK_URL = 'https://backend-astonvoyage.vercel.app/api/destination';
 
   getDestination(): Observable<Destination[]> {
   return this.http.get<Destination[]>(this.BACK_URL+'/getAllDest')
