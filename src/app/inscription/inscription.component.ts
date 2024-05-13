@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { Form, FormGroup, FormBuilder,FormControl, Validators } from '@angular/forms';
+import {  FormGroup, FormBuilder,FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import{UserServices} from '../service/user.service'
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { User } from '../interface/user';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -13,6 +12,7 @@ import { User } from '../interface/user';
   styleUrls: ['./inscription.component.scss']
 })
 export class InscriptionComponent {
+  public BACK_URL=environment
   public connexionForm!: FormGroup
   constructor(private formBuilder: FormBuilder , private router: Router,public user:UserServices,private http: HttpClient) { }
   hide = true;
@@ -35,7 +35,7 @@ export class InscriptionComponent {
     return this.formBuilder.control('mail') ? 'Not a valid email' : '';
   }
   postUsers() {
-    return this.http.post('http://localhost:3000/api/user',this.connexionForm.value).subscribe(
+    return this.http.post(this.BACK_URL.apiURL+'/user',this.connexionForm.value).subscribe(
     (reponse)=>{
       this.navigateToConnexion()
     },
