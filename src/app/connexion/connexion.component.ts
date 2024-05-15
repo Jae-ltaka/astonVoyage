@@ -3,7 +3,7 @@ import { Form, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-connexion',
@@ -11,6 +11,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./connexion.component.scss']
 })
 export class ConnexionComponent implements OnInit {
+  public BACK_URL=environment
   public connexionForm!: FormGroup
   hide = true;
   constructor(private formBuilder: FormBuilder, private router: Router,private http:HttpClient) { }
@@ -38,7 +39,7 @@ export class ConnexionComponent implements OnInit {
   }
 
   connexionUser() {
-    return this.http.post('http://localhost:3000/api/user/authenticate',this.connexionForm.value).subscribe(
+    return this.http.post(this.BACK_URL.apiURL+'/user/authenticate',this.connexionForm.value).subscribe(
     (reponse:any)=>{
       localStorage.setItem('accessToken', reponse.accessToken)
       console.log(reponse)
