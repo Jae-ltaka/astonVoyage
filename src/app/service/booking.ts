@@ -14,4 +14,12 @@ export class BookinService {
      const userId=localStorage.getItem('id')
         return this.http.get<book[]>(this.BACK_URL+"/booking/getAllBook/"+userId)
     }
+
+      // tu doit recup id de la destinition choisi par l'user
+    postBooking(booking: any){
+      
+      return this.http.post<book[]>(this.BACK_URL+'/booking/myBook', booking)
+    }
+
+
 }

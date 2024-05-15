@@ -3,6 +3,7 @@ import { Form, FormGroup, FormBuilder,FormControl, Validators } from '@angular/f
 import { Router } from '@angular/router';
 import { DestinationService } from '../service/get-destination-service';
 import { ActivatedRoute } from '@angular/router';
+import { BookinService } from '../service/booking';
 
 
 @Component({
@@ -18,12 +19,14 @@ export class ReservationComponent implements OnInit{
   nom!:string |null
   prenom!:string|null
   mail!:string|null
+  idDest!:any
   
   
   constructor(private formBuilder: FormBuilder,
     private route:ActivatedRoute,
     private router:Router,
     public destination:DestinationService,
+    public booking:BookinService
   ){}
   
 ngOnInit(): void {
@@ -50,6 +53,10 @@ ngOnInit(): void {
   }
 
 paiement(){
+  localStorage.setItem('iddest',this.id)
+
   this.router.navigate(['/booking-reservation']);
+
+
 }
 }
