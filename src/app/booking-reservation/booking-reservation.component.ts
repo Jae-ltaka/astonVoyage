@@ -11,6 +11,7 @@ export class BookingReservationComponent implements OnInit{
   id!:string |null
   iddest!:string |null
   hasError!: boolean;
+
   constructor(private router:Router,private booking:BookinService){}
 ngOnInit(): void {
     this.id=localStorage.getItem('id')

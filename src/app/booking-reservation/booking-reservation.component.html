@@ -10,21 +10,21 @@
       <form class="form">
         <mat-form-field class="exemple-full-width">
           <mat-label for="Numéro">Numéro de carte</mat-label>
-          <input matInput id="num_carte" type="text">
+          <input matInput id="num_carte"  type="text">
         </mat-form-field>
 
         <mat-form-field class="exemple-full-width">
           <mat-label for="Date">Date d'expiration</mat-label>
-          <input matInput id="Date" type="text">
+          <input matInput id="Date"  type="text">
         </mat-form-field>
 
         <mat-form-field class="exemple-full-width">
           <mat-label for="Numéro">Cryptogramme</mat-label>
-          <input matInput id="Num_cryptogramme" type="text">
+          <input matInput id="Num_cryptogramme"  type="text">
         </mat-form-field>
       </form>
       <div class="bouton">
-        <button mat-flat-button color="primary"(click)="valider()">Payer</button>
+        <button mat-flat-button  color="primary"(click)="valider()">Payer</button>
       </div>  
             <ng-container *ngIf="hasError" ><span class="error">Erreur de paiement</span></ng-container>
 

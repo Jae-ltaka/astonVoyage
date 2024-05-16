@@ -14,7 +14,7 @@ export class ReservationsComponent implements OnInit{
   isConnected: any;
   nom!: string | null
   prenom!: string | null
-  book!:any
+  book:any = []
   
   constructor(public router: Router,
     public card: CardService,
@@ -22,14 +22,15 @@ export class ReservationsComponent implements OnInit{
     private http: HttpClient,
     private bookingService:BookinService){}
     ngOnInit(): void {
+      const userId=localStorage.getItem('id')
       this.isConnected = localStorage.getItem('accessToken')
       this.nom = localStorage.getItem('nom')
       this.prenom = localStorage.getItem('prenom')
-      this.bookingService.getBooking().subscribe(
-      
+
+      this.bookingService.getBooking(userId).subscribe(
         (res)=>{
+          console.log(res)
           this.book=res
-          console.log(res,'ici')
         }
       )
     }

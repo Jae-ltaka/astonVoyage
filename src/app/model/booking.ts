@@ -1,5 +1,6 @@
+import { Destination } from './destination';
 export interface book{
-    nom_destination:string,
-    description:string,
-    prix:string
+    destinationId: Destination;
+    userId:string
 }
+

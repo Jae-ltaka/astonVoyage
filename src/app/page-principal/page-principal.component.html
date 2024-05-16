@@ -39,7 +39,7 @@
 
 </div>
 
-<div class="cards">
+<div class="cards" *ngIf="cards?.length > 0 else  noCards">
     <mat-card class="card" *ngFor="let card of cards">
         <mat-card-header>
 
@@ -47,14 +47,17 @@
             <mat-card-subtitle></mat-card-subtitle>
         </mat-card-header>
         <img class="img" mat-card-image src={{card.image}}>
-        <mat-card-content class="description">
+                <mat-card-content class="description">
             <p>{{card.description}}</p>
         </mat-card-content>
 
         <mat-card-actions class="buttons">
             <button mat-raised-button color="primary" class="button" (click)="navigateToButtondetail(card._id)">Détail</button>
-            
-           
         </mat-card-actions>
+    
     </mat-card>
 </div>
+
+<ng-template #noCards>
+    <h1>Pas de voyages disponibles .. </h1>
+</ng-template>
