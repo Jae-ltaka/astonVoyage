@@ -21,13 +21,20 @@ export class InscriptionComponent {
       nom:new FormControl('',[Validators.required]),
       prenom:new FormControl('',[Validators.required]),
       mdp:new FormControl('',[Validators.required]),
+      mdpConfirmation:new FormControl('',[Validators.required]),
       mail : new FormControl('', [Validators.required, Validators.email]),  
-    })
+    }, {validators:this.passwordMatchValidator})
+  }
+
+  passwordMatchValidator(form: FormGroup): { [s: string]: boolean } | null {
+    return form.get('mdp')?.value === form.get('mdpConfirmation')?.value
+           ? null : { 'passwordMismatch': true };
   }
    //naviguer vers la page connexion 
   navigateToConnexion() {
     this.router.navigate(['/connexion']);
   }
+
   getErrorMessage() {
     if (this.formBuilder.control('required')) {
       return 'entrez les valeurs';

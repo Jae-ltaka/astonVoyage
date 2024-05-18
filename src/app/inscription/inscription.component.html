@@ -44,13 +44,17 @@
     <div class="container-password">
       <mat-form-field appearance="fill">
         <mat-label> votre mot de passe</mat-label>
-        <input matInput formControlName="mdp" [type]="hide ? 'password' : 'text'">
+        <input matInput formControlName="mdpConfirmation" [type]="hide ? 'password' : 'text'">
         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
           [attr.aria-pressed]="hide">
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
       </mat-form-field>
     </div>
+
+    <p *ngIf="connexionForm.errors?.['passwordMismatch'] && connexionForm.touched" class="error">
+      Les mots de passe doivent correspondre.
+    </p>
 
 
     <div class="container-action">
