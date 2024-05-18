@@ -7,24 +7,54 @@
       <p>Pour procéder au paiement veuillez remplir les données ci-dessous :</p>
     </div>
     <br>
-      <form class="form">
+      <form class="form" [formGroup]="bookingForm">
+        <div>
+        <mat-form-field class="exemple-full-width">
+          <mat-label for="Numéro">Nom sur la carte</mat-label>
+          <input formControlName="name" matInput id="name"  type="text">
+        </mat-form-field>
+        <p class="error" *ngIf="bookingForm.get('name')?.errors && bookingForm.get('name')?.touched">Champ invalide</p>
+      </div>
+        <div>
+           <mat-form-field class="exemple-full-width">
+          <mat-label for="Numéro">Prenom sur la carte</mat-label>
+          <input formControlName="lastname" matInput id="lastname"  type="text">
+        </mat-form-field>
+        <p class="error" *ngIf="bookingForm.get('lastname')?.errors && bookingForm.get('lastname')?.touched">Champ invalide</p>
+        </div>
+       
+
+
+      <div>
         <mat-form-field class="exemple-full-width">
           <mat-label for="Numéro">Numéro de carte</mat-label>
-          <input matInput id="num_carte"  type="text">
+          <input formControlName="number" matInput id="num_carte" appOnlyDigits [restrictNumber]="16" appRestrictCreditCardInput  type="text">
         </mat-form-field>
+        <p class="error" *ngIf="bookingForm.get('number')?.errors && bookingForm.get('number')?.touched">Champ invalide 16 chiffres obligatoire</p>
+      </div>
 
-        <mat-form-field class="exemple-full-width">
-          <mat-label for="Date">Date d'expiration</mat-label>
-          <input matInput id="Date"  type="text">
-        </mat-form-field>
-
+      <div>
         <mat-form-field class="exemple-full-width">
           <mat-label for="Numéro">Cryptogramme</mat-label>
-          <input matInput id="Num_cryptogramme"  type="text">
+          <input matInput formControlName="cryptogram" id="Num_cryptogramme" appOnlyDigits appRestrictCreditCardInput [restrictNumber]="3" type="text">
         </mat-form-field>
+        <p class="error" *ngIf="bookingForm.get('cryptogram')?.errors && bookingForm.get('cryptogram')?.touched">Champ invalide 3 chiffres obligatoire</p>
+      </div>
+
+      <div>
+        <mat-form-field class="exemple-full-width">
+          <mat-label for="Date">Date d'expiration</mat-label>
+          <input matInput formControlName="expirationDate" id="expirationDate" type="text" placeholder="date d'expiration" class="form-control" bsDatepicker>
+
+        </mat-form-field>
+        <p class="error" *ngIf="bookingForm.get('expirationDate')?.errors?.['required'] && bookingForm.get('expirationDate')?.touched">Champ invalide</p>
+        <p class="error" *ngIf="bookingForm.get('expirationDate')?.errors?.['expired'] && bookingForm.get('expirationDate')?.touched">Carte expirée</p>
+
+      </div>
+
       </form>
       <div class="bouton">
-        <button mat-flat-button  color="primary"(click)="valider()">Payer</button>
+        <button mat-flat-button [disabled]="bookingForm.invalid"  color="primary" (click)="booking()">Payer</button>
       </div>  
             <ng-container *ngIf="hasError" ><span class="error">Erreur de paiement</span></ng-container>
 
