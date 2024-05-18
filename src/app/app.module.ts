@@ -30,6 +30,7 @@ import { BookingReservationComponent } from './booking-reservation/booking-reser
 import {MatButtonModule} from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ValiderComponent } from './valider/valider.component';
+import { TimeFormatPipe } from './pipes/time.pipe';
 
 registerLocaleData(localeFr, 'fr-FR', localeFrExtra);
 
@@ -44,6 +45,7 @@ registerLocaleData(localeFr, 'fr-FR', localeFrExtra);
     ReservationComponent,
     BookingReservationComponent,
     ValiderComponent,
+    TimeFormatPipe
     
     
   ],
