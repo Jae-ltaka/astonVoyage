@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import{UserServices} from '../service/user.service'
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { passwordMatchValidator, passwordValidator } from './password-validation';
 
 
 @Component({
@@ -20,16 +21,12 @@ export class InscriptionComponent {
     this.connexionForm = this.formBuilder.group({
       nom:new FormControl('',[Validators.required]),
       prenom:new FormControl('',[Validators.required]),
-      mdp:new FormControl('',[Validators.required]),
+      mdp:new FormControl('',[Validators.required, passwordValidator()]),
       mdpConfirmation:new FormControl('',[Validators.required]),
       mail : new FormControl('', [Validators.required, Validators.email]),  
-    }, {validators:this.passwordMatchValidator})
+    }, {validators:passwordMatchValidator})
   }
 
-  passwordMatchValidator(form: FormGroup): { [s: string]: boolean } | null {
-    return form.get('mdp')?.value === form.get('mdpConfirmation')?.value
-           ? null : { 'passwordMismatch': true };
-  }
    //naviguer vers la page connexion 
   navigateToConnexion() {
     this.router.navigate(['/connexion']);

@@ -39,6 +39,10 @@
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
       </mat-form-field>
+
+      <p *ngIf="connexionForm.get('mdp')?.errors?.['invalidPassword']" class="error" >
+        {{ connexionForm.get('mdp')?.errors?.['errorMessage'] }}
+      </p>
     </div>
 
     <div class="container-password">
@@ -63,6 +67,4 @@
       </button>
     </div>
   </div>
-  
-
 </form>
