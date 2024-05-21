@@ -11,6 +11,7 @@ import { environment } from 'src/environments/environment';
 export class BookinService {
     constructor(private http:HttpClient){}
     private BACK_URL = environment.apiURL
+    
     getBooking(userId:string | null): Observable<any>{
         return this.http.get(this.BACK_URL+"/booking/getAllBook/"+userId)
     }

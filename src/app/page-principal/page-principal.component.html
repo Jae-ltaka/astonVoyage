@@ -1,27 +1,7 @@
-<div class="navigation-connexion">
-    <div class="information">
-        <mat-icon mat-button [matMenuTriggerFor]="menu" *ngIf="isConnected">account_circle</mat-icon>
-        <mat-menu #menu>
-            <button mat-menu-item (click)="goToReservation()">Mes réservations</button>
-        </mat-menu>
-        <h4 *ngIf="isConnected">{{nom}} {{prenom}}</h4>
-        
-    </div>
-
-    <button *ngIf="isConnected" mat-raised-button color="warn" (click)="deconnexion()">
-        Deconnexion
-    </button>
-
-    <button *ngIf="!isConnected" mat-raised-button color="primary" id="button_login" (click)="connexion()">Connexion
-        
-    </button>
 
 
-    <!--<button  mat-raised-button color="primary"(click)="sauvegarderPositionPage()">
-        {{isConnected ? 'Deconnexion': 'Connexion'}}
-    </button>-->
-</div>
 
+   <app-header-buttons></app-header-buttons>
 <div class="voyage">
     <img class="aston" src="../../assets/logo.png" alt="">
     <h1>Aston Voyage</h1>

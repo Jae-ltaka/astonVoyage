@@ -29,6 +29,7 @@ import { BookingReservationComponent } from './booking-reservation/booking-reser
 import {MatButtonModule} from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ValiderComponent } from './valider/valider.component';
+import { HeaderButtonsComponent } from './header-buttons/header-buttons.component';
 
 
 
@@ -44,6 +45,7 @@ import { ValiderComponent } from './valider/valider.component';
     ReservationComponent,
     BookingReservationComponent,
     ValiderComponent,
+    HeaderButtonsComponent,
     
     
   ],
