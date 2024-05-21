@@ -25,7 +25,7 @@
         <p>Date de depart: <strong>{{pays.date_depart | date: 'shortDate' }}</strong></p>
         <p>Aeroport d'arrivée: <strong>{{pays.vols.aeroport_arrivee}}</strong></p>
         <p>Date de retour: <strong>{{pays.date_depart | date: 'shortDate' }}</strong></p>
-        <p>Prix: <strong>{{pays.prix}}</strong></p>
+        <p>Prix: <strong>{{pays.prix| currency: 'EUR'}} </strong></p>
         <p>-----------------------------------------------------------</p>
         <!-- <img src="../../assets/plane.png" alt="plane2"> -->
       </mat-card-content>

@@ -1,8 +1,9 @@
-import { NgModule } from '@angular/core';
+import { NgModule , LOCALE_ID} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-
-
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
+import localeFrExtra from '@angular/common/locales/extra/fr';
 
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -30,9 +31,11 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ValiderComponent } from './valider/valider.component';
 import { HeaderButtonsComponent } from './header-buttons/header-buttons.component';
+import {  RestrictCreditCardInputDirective } from './directives/restrict-credit-card-input.directive';
+import { OnlyDigitsDirective } from './directives/only-digits.directive';
+import { TimeformatPipe } from './pipe/timeformat.pipe';
 
-
-
+registerLocaleData(localeFr, 'fr-FR', localeFrExtra);
 
 @NgModule({
   declarations: [
@@ -46,8 +49,9 @@ import { HeaderButtonsComponent } from './header-buttons/header-buttons.componen
     BookingReservationComponent,
     ValiderComponent,
     HeaderButtonsComponent,
-    
-    
+    RestrictCreditCardInputDirective,
+    OnlyDigitsDirective,
+    TimeformatPipe
   ],
   imports: [
     BrowserModule,
@@ -69,7 +73,10 @@ import { HeaderButtonsComponent } from './header-buttons/header-buttons.componen
     MatDialogModule
     
   ],
-  providers: [],
+  providers: [{
+    provide: LOCALE_ID,
+    useValue: 'fr-FR'
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

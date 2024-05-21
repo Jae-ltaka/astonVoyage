@@ -17,6 +17,6 @@ ngOnInit(): void {
     
 }
 accueil(){
-  this.router.navigate(['acceuil']);
+  this.router.navigate(['reservations']);
 }
 }
