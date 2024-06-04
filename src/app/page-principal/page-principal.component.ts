@@ -6,6 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 import { UserServices } from '../service/user.service';
 import { HttpClient } from '@angular/common/http';
 import { DestinationService } from '../service/get-destination-service';
+import { environment } from 'src/environments/environment';
 
 
 
@@ -25,6 +26,7 @@ export class PagePrincipalComponent implements OnInit{
   nom!:string |null
   prenom!:string|null
   date_depart!:any
+  public BACK_URL=environment
   
   ngOnInit(): void {
     this.isConnected = localStorage.getItem('accessToken')
@@ -63,8 +65,11 @@ export class PagePrincipalComponent implements OnInit{
     )
     console.log(this.filterDestination,'ici')
     
+    
   }
-
+  getImageUrl(filename: string): string {
+    return this.BACK_URL.apiURL+ "/destination/download/"+filename;
+  }
 
 
 }
