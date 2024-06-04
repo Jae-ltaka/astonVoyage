@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { UserServices } from '../service/user.service';
 
 @Component({
   selector: 'app-connexion',
@@ -14,7 +15,7 @@ export class ConnexionComponent implements OnInit {
   public BACK_URL=environment
   public connexionForm!: FormGroup
   hide = true;
-  constructor(private formBuilder: FormBuilder, private router: Router,private http:HttpClient) { }
+  constructor(private formBuilder: FormBuilder, private router: Router,private http:HttpClient, public userService:UserServices) { }
 
   ngOnInit(): void {
     this.connexionForm = this.formBuilder.group({
@@ -39,19 +40,23 @@ export class ConnexionComponent implements OnInit {
   }
 
   connexionUser() {
-    return this.http.post(this.BACK_URL.apiURL+'/user/authenticate',this.connexionForm.value).subscribe(
-    (reponse:any)=>{
-      localStorage.setItem('accessToken', reponse.accessToken)
-      console.log(reponse)
-      localStorage.setItem('nom',reponse.user.nom)
-      localStorage.setItem('prenom',reponse.user.prenom)
-      localStorage.setItem('mail',reponse.user.mail)
-      localStorage.setItem('id',reponse.user._id)
+    this.userService.login(this.connexionForm.value).subscribe(
+      (succes:any)=> {
+        this.navigateToPagePrincipal()
+        localStorage.setItem('accessToken', succes.accessToken)
+      localStorage.setItem('nom',succes.user.nom)
+      localStorage.setItem('prenom',succes.user.prenom)
+      localStorage.setItem('mail',succes.user.mail)
+      localStorage.setItem('id',succes.user._id)
+     
 
-      this.navigateToPagePrincipal()
-    },
-    (error)=>{}
-    );
+
+      },
+      (error)=> {
+        alert('Erreur de connexion')
+      }
+    )
+
     
   }
 

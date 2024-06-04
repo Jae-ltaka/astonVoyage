@@ -30,6 +30,7 @@ import { BookingReservationComponent } from './booking-reservation/booking-reser
 import {MatButtonModule} from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ValiderComponent } from './valider/valider.component';
+import { HeaderButtonsComponent } from './header-buttons/header-buttons.component';
 import {  RestrictCreditCardInputDirective } from './directives/restrict-credit-card-input.directive';
 import { OnlyDigitsDirective } from './directives/only-digits.directive';
 import { TimeformatPipe } from './pipe/timeformat.pipe';
@@ -47,6 +48,7 @@ registerLocaleData(localeFr, 'fr-FR', localeFrExtra);
     ReservationComponent,
     BookingReservationComponent,
     ValiderComponent,
+    HeaderButtonsComponent,
     RestrictCreditCardInputDirective,
     OnlyDigitsDirective,
     TimeformatPipe

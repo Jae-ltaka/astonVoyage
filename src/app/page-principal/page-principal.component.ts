@@ -6,6 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 import { UserServices } from '../service/user.service';
 import { HttpClient } from '@angular/common/http';
 import { DestinationService } from '../service/get-destination-service';
+import { environment } from 'src/environments/environment';
 
 
 
@@ -25,6 +26,7 @@ export class PagePrincipalComponent implements OnInit{
   nom!:string |null
   prenom!:string|null
   date_depart!:any
+  public BACK_URL=environment
   
   ngOnInit(): void {
     this.isConnected = localStorage.getItem('accessToken')
@@ -42,7 +44,8 @@ export class PagePrincipalComponent implements OnInit{
     public card: CardService,
     public reponse: UserServices,
     private http: HttpClient,
-    private destination: DestinationService) {
+    private destination: DestinationService,
+    private userService:UserServices) {
     this.maxDate.setDate(this.maxDate.getDate() + 7);
     this.bsInlineRangeValue = [this.bsInlineValue, this.maxDate];
     this.cards = this.card.card
@@ -53,30 +56,7 @@ export class PagePrincipalComponent implements OnInit{
     this.router.navigateByUrl(`detail/${_id}`);
   }
   //fonction deconnexion qui supprime le nom et prenom
-  deconnexion(): void {
-    localStorage.removeItem('accessToken')
-    this.isConnected = false;
-    localStorage.removeItem('nom')
-    localStorage.removeItem('prenom')
-  }
-  
-  //naviguer vers la page connexion + stockage de  l'url dans le localStorage
-  connexion(): void {
-    localStorage.setItem('redirect', 'http://localhost:4200/connexion');
-    this.router.navigate(['/connexion']);
-  }
-  // getDestination(){
-  //   return this.http.get('http://localhost:3000/api/destination/getAllDest').subscribe(
-  //     (res)=>{
-  //       this.cards=res
-  //       console.log(res)
-  //     },
-  //     (error)=>{}
-  //   )
-  // }
-  goToReservation(){
-    this.router.navigateByUrl('reservations')
-  }
+ 
   filterDestination(){
     this.destination.getDestinationFiltered(this.date_depart.toISOString()).subscribe(
       (data:any)=>{
@@ -85,8 +65,11 @@ export class PagePrincipalComponent implements OnInit{
     )
     console.log(this.filterDestination,'ici')
     
+    
   }
-
+  getImageUrl(filename: string): string {
+    return this.BACK_URL.apiURL+ "/destination/download/"+filename;
+  }
 
 
 }

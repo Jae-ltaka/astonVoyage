@@ -50,12 +50,7 @@ console.log('Test ID:', this.id);
   reservation(){
     this.router.navigate(["reservation/"+this.id]);
   }
-  deconnexion(): void {
-    localStorage.removeItem('accessToken')
-    this.isConnected = false;
-    localStorage.removeItem('nom')
-    localStorage.removeItem('prenom')
-  }
+
    //naviguer vers la page connexion 
   connexion(): void {
     localStorage.setItem('redirect', 'detail/'+this.id);
