@@ -11,10 +11,7 @@ import { DestinationService } from '../service/get-destination-service';
   styleUrls: ['./detail.component.scss']
 })
 export class DetailComponent implements OnInit{
-  isConnected:any;
   card:any;
-  nom!:string |null
-  prenom!:string|null
   id!: any;
   pays!:any;
   
@@ -25,9 +22,6 @@ export class DetailComponent implements OnInit{
               private destination:DestinationService){}
 
   ngOnInit(): void {
-      this.isConnected = localStorage.getItem('accessToken') 
-    this.nom= localStorage.getItem('nom')
-    this.prenom=localStorage.getItem('prenom')
     this.route.params.subscribe(params => {
       this.id = params['id']; // Access the 'id' parameter from the URL
       
@@ -46,15 +40,16 @@ console.log('Test ID:', this.id);
       }
     )
   }
-   //naviguer vers la page reservation
-  reservation(){
-    this.router.navigate(["reservation/"+this.id]);
-  }
+
 
    //naviguer vers la page connexion 
-  connexion(): void {
-    localStorage.setItem('redirect', 'detail/'+this.id);
-    this.router.navigate(['/connexion']);
+   navigate(isConnected:any): void {
+     if(isConnected) {
+      this.router.navigate(["reservation/"+this.id]);
+     }else {
+      localStorage.setItem('redirect', 'detail/'+this.id);
+      this.router.navigate(['/connexion']);
+     }
   }
   goToReservation(){
     this.router.navigateByUrl('reservations')

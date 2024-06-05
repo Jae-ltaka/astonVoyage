@@ -26,17 +26,11 @@
 <!-- <h3> Réserver pour visiter de nouveaux horizons !</h3> -->
 <div class="container_card">
 
-  <app-card [data]="pays" (dataEvent)="reservation()"></app-card>
+  <app-card [data]="pays" (dataEvent)="navigate($event)"></app-card>
 </div>
 
 <br>
 
-<div class="buttonreservation">
-  <button  *ngIf="isConnected" type="button" class="btn btn-primary" (click)="reservation()">
-    Réservation
-  </button>
-  <button  *ngIf="!isConnected" type="button" class="btn btn-primary" (click)="connexion()"> connectez-vous pour réservez</button>
-</div>
 </div>
 
 

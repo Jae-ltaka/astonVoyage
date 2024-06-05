@@ -8,7 +8,7 @@
 .avion{
   display: flex;
   justify-content: center;
-  height:150px;
+  height:300px;
 }
 .titre{
 display: flex;
@@ -21,4 +21,10 @@ flex-direction:column;
   justify-content: center;
   color: blue;
   }
-  
+  .congratulation {
+    font-style :italic;
+  }
+  .buttonText {
+    color:rgb(255, 165, 0);
+
+  }

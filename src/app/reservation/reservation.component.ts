@@ -12,7 +12,6 @@ import { BookinService } from '../service/booking';
   styleUrls: ['./reservation.component.scss']
 })
 export class ReservationComponent implements OnInit{
-  public connexionForm!: FormGroup
   pays!:any;
   id!:any
   isConnected:any;
@@ -22,7 +21,7 @@ export class ReservationComponent implements OnInit{
   idDest!:any
   
   
-  constructor(private formBuilder: FormBuilder,
+  constructor(
     private route:ActivatedRoute,
     private router:Router,
     public destination:DestinationService,
