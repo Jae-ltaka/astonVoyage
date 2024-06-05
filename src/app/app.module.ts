@@ -34,6 +34,7 @@ import { HeaderButtonsComponent } from './header-buttons/header-buttons.componen
 import {  RestrictCreditCardInputDirective } from './directives/restrict-credit-card-input.directive';
 import { OnlyDigitsDirective } from './directives/only-digits.directive';
 import { TimeformatPipe } from './pipe/timeformat.pipe';
+import { CardComponent } from './card/card.component';
 
 registerLocaleData(localeFr, 'fr-FR', localeFrExtra);
 
@@ -51,7 +52,8 @@ registerLocaleData(localeFr, 'fr-FR', localeFrExtra);
     HeaderButtonsComponent,
     RestrictCreditCardInputDirective,
     OnlyDigitsDirective,
-    TimeformatPipe
+    TimeformatPipe,
+    CardComponent
   ],
   imports: [
     BrowserModule,
