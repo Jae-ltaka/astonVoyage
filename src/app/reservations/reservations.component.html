@@ -15,7 +15,7 @@
             <mat-card-title class="title">{{card.destinationId.nom_destination}}</mat-card-title>
             <mat-card-subtitle></mat-card-subtitle>
         </mat-card-header>
-        <img class="img" mat-card-image src={{card.destinationId.image}}>
+        <img class="img" mat-card-image [src]="getImageUrl(card.destinationId.image)">
         <mat-card-content class="description">
             <p><strong>Destination</strong> : {{card.destinationId.nom_destination}} </p>
             <p>{{card.destinationId.description}} </p>
@@ -25,11 +25,6 @@
 
         </mat-card-content>
 
-        <mat-card-actions class="buttons">
-            
-            
-           
-        </mat-card-actions>
     </mat-card>
 </div>
 

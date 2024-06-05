@@ -6,21 +6,15 @@
 </div>
 
 <br>
+<div *ngIf="pays">
 <div class="papa">
-  <h1> {{ pays.nom_destination  }}</h1>
+  <h1 class="titre"> {{ pays.nom_destination  }} !</h1>
   <br>
   <div class="caroussel">
   <carousel>
     <slide>
       <img src="../../assets/bital-7130015_960_720.png" alt="first slide" style="display: block; width: 100%;">
     </slide>
-    <slide>
-      <img src="../../assets/La-ville-de-Kinshansa.png" alt="second slide" style="display: block; width: 100%;">
-    </slide>
-    <slide>
-      <img src="../../assets/RDC-Paysage.png" alt="third slide" style="display: block; width: 100%;">
-    </slide>
-
   </carousel>
   <br>
 </div>
@@ -29,19 +23,11 @@
 <h2>{{ pays.description  }}</h2>
 </div>
 <br>
-<h3> Réserver pour visiter de nouveaux horizons !</h3>
-  <mat-card class="center">
-  <mat-card-content>
-    <p>---------------------------------------------------------------</p>
-    <p>Pour votre Séjour a <strong class="abc">{{pays.nom_destination}} : </strong><p>
-    <p>Votre vol sera opérée par la compagnie <strong class="abc">{{pays.vols.compagnie_vol}}</strong></p>
-    <p>Au depart de <strong class="abc">{{pays.vols.aeroport_depart}}</strong> a <strong class="abc">{{pays.vols.heure_depart | timeFormat}}</strong> </p>
-    <p>Et vous atteindrez <strong class="abc">{{pays.vols.aeroport_arrivee}}</strong> a <strong class="abc">{{pays.vols.heure_arrivee | timeFormat}}</strong></p>
-    <p>---------------------------------------------------------------</p>
-    </mat-card-content>
-  </mat-card>
+<!-- <h3> Réserver pour visiter de nouveaux horizons !</h3> -->
+<div class="container_card">
 
-  <app-card [data]="pays"></app-card>
+  <app-card [data]="pays" (dataEvent)="reservation()"></app-card>
+</div>
 
 <br>
 
@@ -51,10 +37,7 @@
   </button>
   <button  *ngIf="!isConnected" type="button" class="btn btn-primary" (click)="connexion()"> connectez-vous pour réservez</button>
 </div>
-
-
-
-
+</div>
 
 
 

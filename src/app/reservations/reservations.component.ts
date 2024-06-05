@@ -1,3 +1,4 @@
+import { environment } from './../../environments/environment.development';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CardService } from '../service/card.service';
@@ -12,6 +13,7 @@ import { BookinService } from '../service/booking';
 })
 export class ReservationsComponent implements OnInit{
   isConnected: any;
+  BACK_URL = environment
   
   book:any = []
   
@@ -36,6 +38,10 @@ export class ReservationsComponent implements OnInit{
    //naviguer vers la page acceuil
   goToAcceuil(): void {
     this.router.navigateByUrl('acceuil')
+  }
+
+  getImageUrl(filename: string): string {
+    return this.BACK_URL.apiURL+ "/destination/download/"+filename;
   }
 
 }

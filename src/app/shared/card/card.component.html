@@ -1,0 +1,26 @@
+<div class="cookieCard" *ngIf="data && isRecap">
+  <p class="cookieHeading"> {{data.nom_destination}} </p>
+  <p class="cookieDescription">Aéroport de depart:{{data.vols.aeroport_depart}} </p>
+  <p class="cookieDescription">Aéroport d'arrivée:{{data.vols.aeroport_arrivee}} </p>
+
+  <p class="cookieDescription">Date de depart: {{data.date_depart | date: 'shortDate' }}</p>
+
+  <p class="cookieDescription">Date d'arrivée: {{data.date_retour | date: 'shortDate'}}</p>
+  <p class="cookieDescription">Prix: {{data.prix| currency: 'EUR'}}</p>
+
+  
+  <button class="acceptButton" (click)="action()">Paiement</button>
+</div>
+
+
+  <div class="cookieCard" *ngIf="data && !isRecap">
+    <p class="cookieHeading">Pour votre Séjour à {{data.nom_destination}} </p>
+    <p class="cookieDescription">Votre vol sera opérée par la compagnie {{data.vols.compagnie_vol}} </p>
+    <p class="cookieDescription">Au depart de {{data.vols.aeroport_depart}} </p>
+  
+    <p class="cookieDescription">Et vous atteindrez {{data.vols.aeroport_arrivee}}</p>
+  
+    <p class="cookieHeading">Réserver pour visiter de nouveaux horizons ! </p>
+
+    <button class="acceptButton" (click)="action()">Réservation</button>
+  </div>
