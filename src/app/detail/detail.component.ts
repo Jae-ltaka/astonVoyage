@@ -4,6 +4,7 @@ import { CardService } from '../service/card.service';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { DestinationService } from '../service/get-destination-service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-detail',
@@ -14,6 +15,7 @@ export class DetailComponent implements OnInit{
   card:any;
   id!: any;
   pays!:any;
+    public BACK_URL=environment
   
   
   constructor (public cardService:CardService,
@@ -41,6 +43,12 @@ console.log('Test ID:', this.id);
     )
   }
 
+  getImageUrl(filename: string): string {
+    console.log(filename)
+    return this.BACK_URL.apiURL+ "/destination/download/"+filename;
+    
+  }
+  
 
    //naviguer vers la page connexion 
    navigate(isConnected:any): void {
@@ -54,6 +62,5 @@ console.log('Test ID:', this.id);
   goToReservation(){
     this.router.navigateByUrl('reservations')
   }
-
 }
   
