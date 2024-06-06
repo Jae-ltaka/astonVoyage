@@ -44,7 +44,7 @@
       <div>
         <mat-form-field class="exemple-full-width">
           <mat-label for="Date">Date d'expiration</mat-label>
-          <input matInput formControlName="expirationDate" id="expirationDate" type="text" placeholder="date d'expiration" class="form-control" bsDatepicker>
+          <input matInput [bsConfig]="datePickerConfig" formControlName="expirationDate" id="expirationDate" type="text" placeholder="date d'expiration" class="form-control" bsDatepicker>
 
         </mat-form-field>
         <p class="error" *ngIf="bookingForm.get('expirationDate')?.errors?.['required'] && bookingForm.get('expirationDate')?.touched">Champ invalide</p>

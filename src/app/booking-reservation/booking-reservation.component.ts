@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { BookinService } from '../service/booking';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { cardExpirationValidator } from './card-validator';
+import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 
 @Component({
   selector: 'app-booking-reservation',
@@ -14,6 +15,14 @@ export class BookingReservationComponent implements OnInit{
   iddest!:string |null
   hasError!: boolean;
   bookingForm!: FormGroup;
+
+  datePickerConfig:Partial<BsDatepickerConfig> = {
+    isAnimated: true,
+    dateInputFormat:'MM/YYYY',
+    startView:'month',
+    minMode:'month',
+    containerClass: 'theme-orange'
+    };
 
   constructor(private router:Router,private bookingService:BookinService,private formBuilder: FormBuilder){}
 ngOnInit(): void {
