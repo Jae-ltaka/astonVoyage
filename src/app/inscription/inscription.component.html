@@ -1,9 +1,9 @@
 
 <form [formGroup]="connexionForm">
   <div class="voyage">
-    <img class="aston"src="../../assets/unnamed.png" alt="">
+    <img class="aston"src="../../assets/logo.png" alt="">
     </div>
-  <h4>Inscrivez-vous pour avoir une vie audacieuse ou rien du tout</h4>
+  <h4 class="btnText cursive">Voyager c'est vivre – Commencez votre nouvelle histoire avec nous.</h4>
   <div class="formulaire">
     <div class="form-name">
 
@@ -62,8 +62,8 @@
 
 
     <div class="container-action">
-      <button type="button" (click)="postUsers()"[disabled]="connexionForm.invalid" class="btn btn-primary" tooltip="">
-        inscription
+      <button type="button" (click)="postUsers()"[disabled]="connexionForm.invalid" color="primary" class="btnText" mat-raised-button>
+        s'enregistrer
       </button>
     </div>
   </div>

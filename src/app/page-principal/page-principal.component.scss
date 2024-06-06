@@ -27,6 +27,7 @@
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+    margin-top: 10px;
 }
 .buttons{
     display: flex;
@@ -64,9 +65,4 @@ h4{
 }
 .material-icons{
     font-size: 26px;
-}
-
-.btnText {
-color:rgb(255, 165, 0);
-  
 }

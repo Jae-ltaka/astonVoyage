@@ -1,7 +1,7 @@
 <div class="voyage">
   <img class="aston" src="../../assets/logo.png" alt="">
 </div>
-<h4>Connectez-vous pour avoir une vie audacieuse ou rien du tout</h4>
+<h4 class="cursive btnText">Explorez le monde avec nous - Des expériences inoubliables à chaque tournant.</h4>
 <form [formGroup]="connexionForm">
   <div class="formulaire">
     <div class="container-form">
@@ -23,12 +23,12 @@
     </div>
     <div class="button-connexion-inscription">
       <div class="button-connexion">
-    <button type="button" (click)="connexionUser()" [disabled]="connexionForm.invalid"
-      class="btn btn-primary">
+    <button type="button" (click)="connexionUser()" [disabled]="connexionForm.invalid" mat-raised-button color="primary"
+      class="btnText">
       Se connecter
     </button>
   </div>
-    <button type="button" (click)="navigateToButtonInscription()" class="btn btn-primary">
+    <button type="button" (click)="navigateToButtonInscription()" primary mat-raised-button  color="primary"class="btnText">
     S'inscrire
     </button>
   </div>

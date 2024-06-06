@@ -6,8 +6,26 @@
 /* Importing Datepicker SCSS file. */
 @import "node_modules/ngx-bootstrap/datepicker/bs-datepicker";
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body { height: 10%; }
+body { 
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+.btnText {
+ color: rgb(255, 165, 0)  !important
+} 
+.cursive {
+    font-family:cursive !important
+}
+
+mat-card {
+   box-shadow:  3px 3px 35px #59469e7d !important;
+   border-radius: 25px  !important;
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background-color: rgb(255 165 0 / 3%) !important 
+}
 
 /* Importing Bootstrap SCSS file. */
 @import "./node_modules/bootstrap/scss/bootstrap";
