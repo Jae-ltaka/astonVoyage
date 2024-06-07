@@ -20,7 +20,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { DetailComponent } from './detail/detail.component';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import {MatMenuModule} from '@angular/material/menu';
@@ -35,6 +35,7 @@ import {  RestrictCreditCardInputDirective } from './directives/restrict-credit-
 import { OnlyDigitsDirective } from './directives/only-digits.directive';
 import { TimeformatPipe } from './pipe/timeformat.pipe';
 import { CardComponent } from './shared/card/card.component';
+import { AuthInterceptor } from './interceptor';
 
 registerLocaleData(localeFr, 'fr-FR', localeFrExtra);
 
@@ -78,6 +79,11 @@ registerLocaleData(localeFr, 'fr-FR', localeFrExtra);
   providers: [{
     provide: LOCALE_ID,
     useValue: 'fr-FR'
+  },
+  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
   }],
   bootstrap: [AppComponent]
 })
